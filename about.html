@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About Avotune Studio — our story, mission, team, and the values that drive India's premier music production school."/>
+  <title>About Us — Avotune Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/about.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<canvas id="av-particles"></canvas>
+<div class="nav-overlay"></div>
+
+<!-- ═══════════════════ NAVBAR ════════════════════════════════ -->
+<nav id="av-nav">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="nav-logo text-decoration-none">
+        <span class="nav-logo-text">Avotune</span>
+        <span class="nav-logo-sub">Studio</span>
+      </a>
+      <div class="nav-links-wrap d-flex align-items-center gap-3">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-primary ms-2">Enroll Now</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ PAGE HERO ═════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1800&q=80" alt="About Avotune Studio"/>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-grid"></div>
+  </div>
+  <div class="container page-hero-content">
+    <div class="page-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>About Us</span>
+    </div>
+    <div class="section-eyebrow">Our Story</div>
+    <h1 class="display-title">Built By <span class="text-grad">Artists,</span><br>For Artists</h1>
+    <p class="section-body mt-3" style="max-width:520px;">
+      We didn't build Avotune to be another music school. We built it because we believed every talented producer in India deserves access to world-class training — not just those who can afford to study abroad.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ MISSION ═══════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 sr sr-left">
+        <div class="mission-card">
+          <p class="mission-quote">
+            Talent is equally distributed. Opportunity is not. We exist to fix that — one producer at a time.
+          </p>
+          <div class="divider mt-4"></div>
+          <p style="font-family:var(--font-accent);color:var(--muted);font-size:15px;line-height:1.8;margin-top:20px;">
+            At Avotune, we measure success not by how many students enroll — but by how many are working professionally in music within a year of graduating. That north star shapes every decision we make: our curriculum, our gear investments, our batch sizes, and how we hire instructors.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 sr sr-right">
+        <div class="av-img-wrap img-glow-border" style="border-radius:18px;">
+          <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&q=80"
+               alt="Studio Mission" style="aspect-ratio:4/3;object-fit:cover;"/>
+          <div class="av-img-overlay"></div>
+        </div>
+        <div class="row g-3 mt-3">
+          <div class="col-6">
+            <div class="achieve-card">
+              <div class="achieve-num" data-count="500" data-suffix="+">500+</div>
+              <div class="achieve-label">Students Trained</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="achieve-card">
+              <div class="achieve-num" data-count="80" data-suffix="%">80%</div>
+              <div class="achieve-label">Placement Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OUR VALUES ════════════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">What We Stand For</div>
+      <h2 class="section-heading">Our <span class="grad">Core Values</span></h2>
+      <p class="section-body mx-auto text-center mt-3">Everything we do — from curriculum design to how we talk to students — flows from these five principles.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card sr sr-d1">
+        <div class="value-num">01</div>
+        <div class="value-icon icon-pink"><i class="fas fa-hands-holding-heart"></i></div>
+        <h4>Passion First</h4>
+        <p>We only teach what we love. Every instructor at Avotune is an active working professional — not someone who used to make music and now just talks about it.</p>
+      </div>
+      <div class="value-card sr sr-d2">
+        <div class="value-num">02</div>
+        <div class="value-icon icon-cyan"><i class="fas fa-bolt"></i></div>
+        <h4>Hands-On Always</h4>
+        <p>We don't believe in passive learning. From day one, students are making music on professional gear in a real acoustic environment.</p>
+      </div>
+      <div class="value-card sr sr-d3">
+        <div class="value-num">03</div>
+        <div class="value-icon icon-purple"><i class="fas fa-users"></i></div>
+        <h4>Small Batches</h4>
+        <p>We cap every batch at 20 students. Not because we can't handle more — because individual attention is non-negotiable for real skill development.</p>
+      </div>
+      <div class="value-card sr sr-d4">
+        <div class="value-num">04</div>
+        <div class="value-icon icon-teal"><i class="fas fa-arrow-trend-up"></i></div>
+        <h4>Outcomes Over Certificates</h4>
+        <p>We're not a certificate mill. We track graduates and obsess over how many are actively working in music. That's our real report card.</p>
+      </div>
+      <div class="value-card sr">
+        <div class="value-num">05</div>
+        <div class="value-icon icon-pink"><i class="fas fa-earth-asia"></i></div>
+        <h4>Open Access</h4>
+        <p>World-class music training shouldn't require a trip to London or Los Angeles. We're bringing it to New Delhi — and soon, online to every city in India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OUR STORY TIMELINE ════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">The Journey</div>
+      <h2 class="section-heading">How We <span class="grad">Got Here</span></h2>
+    </div>
+    <div class="story-line sr">
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div class="story-year">2015</div>
+        <div class="story-title">The Bedroom Studio</div>
+        <p class="story-desc">Aryan starts producing music from a tiny bedroom in Delhi with a ₹15,000 laptop and a borrowed MIDI keyboard. His first track gets 800 plays.</p>
+      </div>
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div class="story-year">2017</div>
+        <div class="story-title">First Bollywood Credit</div>
+        <p class="story-desc">A sync placement on a Bollywood indie film opens doors. Aryan moves into a proper studio space and begins taking on production clients.</p>
+      </div>
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div class="story-year">2019</div>
+        <div class="story-title">The First Student</div>
+        <p class="story-desc">A friend asks Aryan to teach him production. Word spreads. By year-end, 12 students are paying for informal one-on-one sessions. The idea for a proper school forms.</p>
+      </div>
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div class="story-year">2020</div>
+        <div class="story-title">Avotune Studio Founded</div>
+        <p class="story-desc">The first official batch of MMPM launches with 18 students in a rented Lajpat Nagar studio. 16 out of 18 go on to work professionally in music within 12 months.</p>
+      </div>
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div class="story-year">2022</div>
+        <div class="story-title">New Studio, New Gear</div>
+        <p class="story-desc">We move into our current 3,000 sq ft space, add a recording booth, Neve console, and a dedicated mastering suite. The curriculum doubles in depth.</p>
+      </div>
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div class="story-year">2025</div>
+        <div class="story-title">500+ Alumni & Growing</div>
+        <p class="story-desc">500+ graduates are now working across Bollywood, independent music, streaming, gaming audio, and content creation. Batch 12 is about to begin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ACHIEVEMENTS ══════════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">By The Numbers</div>
+      <h2 class="section-heading">What We've <span class="grad">Achieved</span></h2>
+    </div>
+    <div class="achieve-grid">
+      <div class="achieve-card sr sr-d1">
+        <div class="achieve-num" data-count="500" data-suffix="+">500+</div>
+        <div class="achieve-label">Students Trained</div>
+      </div>
+      <div class="achieve-card sr sr-d2">
+        <div class="achieve-num" data-count="10" data-suffix="+">10+</div>
+        <div class="achieve-label">Years Experience</div>
+      </div>
+      <div class="achieve-card sr sr-d3">
+        <div class="achieve-num" data-count="80" data-suffix="%">80%</div>
+        <div class="achieve-label">Placement Rate</div>
+      </div>
+      <div class="achieve-card sr sr-d4">
+        <div class="achieve-num" data-count="12" data-suffix="">12</div>
+        <div class="achieve-label">Batches Completed</div>
+      </div>
+      <div class="achieve-card sr">
+        <div class="achieve-num" data-count="50" data-suffix="+">50+</div>
+        <div class="achieve-label">Industry Releases</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TEAM ═══════════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">The People</div>
+      <h2 class="section-heading">Meet The <span class="grad">Team</span></h2>
+      <p class="section-body mx-auto text-center mt-3">Every instructor at Avotune is an active professional — not a retired musician turned teacher.</p>
+    </div>
+    <div class="team-grid">
+      <!-- Aryan -->
+      <div class="team-card sr sr-d1">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Aryan Mehta"/>
+          <div class="team-img-overlay"></div>
+          <div class="team-socials">
+            <a href="#" class="team-soc"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="team-soc"><i class="fab fa-spotify"></i></a>
+            <a href="#" class="team-soc"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Aryan Mehta</div>
+          <div class="team-role">Founder · Head Instructor</div>
+          <p class="team-bio">10 years of production, 50+ industry releases, and a burning belief that teaching is the highest form of expertise. Bollywood credits include 3 feature films and 20+ singles.</p>
+        </div>
+      </div>
+      <!-- Priya -->
+      <div class="team-card sr sr-d2">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Priya Nair"/>
+          <div class="team-img-overlay"></div>
+          <div class="team-socials">
+            <a href="#" class="team-soc"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="team-soc"><i class="fab fa-soundcloud"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Priya Nair</div>
+          <div class="team-role">Mixing Engineer · Instructor</div>
+          <p class="team-bio">Mumbai-trained mix engineer who moved to Delhi to join Avotune. Her mixes have hit the top 10 on Spotify India twice. Specialises in vocal processing and spatial audio.</p>
+        </div>
+      </div>
+      <!-- Dev -->
+      <div class="team-card sr sr-d3">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" alt="Dev Sharma"/>
+          <div class="team-img-overlay"></div>
+          <div class="team-socials">
+            <a href="#" class="team-soc"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="team-soc"><i class="fab fa-spotify"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Dev Sharma</div>
+          <div class="team-role">Sound Designer · DJ Instructor</div>
+          <p class="team-bio">Resident DJ at 3 of Delhi's top venues and sound designer for 2 gaming studios. Teaches live performance, DJ technique, and synth programming at Avotune.</p>
+        </div>
+      </div>
+      <!-- Riya -->
+      <div class="team-card sr sr-d4">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80" alt="Riya Kapoor"/>
+          <div class="team-img-overlay"></div>
+          <div class="team-socials">
+            <a href="#" class="team-soc"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="team-soc"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Riya Kapoor</div>
+          <div class="team-role">Music Business · Career Coach</div>
+          <p class="team-bio">Former A&R manager at a major Delhi label. Now helps Avotune students understand contracts, royalties, distribution, and how to build a sustainable music career.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STUDIO FEATURES ══════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 sr sr-left">
+        <div class="section-eyebrow">The Space</div>
+        <h2 class="section-heading">A Studio <span class="grad">Built For</span> Learning</h2>
+        <p class="section-body mt-3 mb-4">3,000 sq ft of acoustically treated, professionally equipped space — designed to give students the real studio experience from their very first session.</p>
+        <div class="studio-features-grid">
+          <div class="sf-item">
+            <div class="sf-icon icon-pink"><i class="fas fa-microphone"></i></div>
+            <div>
+              <h6>Live Recording Booth</h6>
+              <p>Fully treated, professional recording booth with Neumann U87 and AKG C414 microphones.</p>
+            </div>
+          </div>
+          <div class="sf-item">
+            <div class="sf-icon icon-cyan"><i class="fas fa-sliders"></i></div>
+            <div>
+              <h6>Neve Console</h6>
+              <p>Neve 8078 analogue desk for hands-on signal flow and analogue mixing practice.</p>
+            </div>
+          </div>
+          <div class="sf-item">
+            <div class="sf-icon icon-purple"><i class="fas fa-headphones"></i></div>
+            <div>
+              <h6>Mastering Suite</h6>
+              <p>Dedicated room with Genelec 1032 monitors and Weiss analogue mastering chain.</p>
+            </div>
+          </div>
+          <div class="sf-item">
+            <div class="sf-icon icon-teal"><i class="fas fa-laptop-code"></i></div>
+            <div>
+              <h6>8 Production Stations</h6>
+              <p>Mac Studios running Ableton, FL Studio and Logic Pro — all with full plugin libraries.</p>
+            </div>
+          </div>
+          <div class="sf-item">
+            <div class="sf-icon icon-pink"><i class="fas fa-compact-disc"></i></div>
+            <div>
+              <h6>DJ & Performance Rig</h6>
+              <p>Pioneer CDJ-3000 setup, DJM-A9 mixer, and a full PA for live performance practice.</p>
+            </div>
+          </div>
+          <div class="sf-item">
+            <div class="sf-icon icon-cyan"><i class="fas fa-wifi"></i></div>
+            <div>
+              <h6>Online Studio Portal</h6>
+              <p>24/7 access to recorded lessons, session notes, project files, and live Q&A recordings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 sr sr-right">
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="av-img-wrap img-glow-border" style="border-radius:14px;">
+              <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80"
+                   alt="Recording Booth" style="aspect-ratio:16/9;object-fit:cover;"/>
+              <div class="av-img-overlay"></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="av-img-wrap img-glow-border" style="border-radius:14px;">
+              <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=500&q=80"
+                   alt="Mixing Console" style="aspect-ratio:4/3;object-fit:cover;"/>
+              <div class="av-img-overlay"></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="av-img-wrap img-glow-border" style="border-radius:14px;">
+              <img src="https://images.unsplash.com/photo-1563330232-57114bb0823c?w=500&q=80"
+                   alt="Beat Lab" style="aspect-ratio:4/3;object-fit:cover;"/>
+              <div class="av-img-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PARTNERS ══════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Industry Trust</div>
+      <h2 class="section-heading">Our <span class="grad">Partners</span></h2>
+      <p class="section-body mx-auto text-center mt-2">Studios and labels that hire our graduates and collaborate with Avotune.</p>
+    </div>
+    <div class="partners-strip sr">
+      <div class="partner-logo">YRF Music</div>
+      <div class="partner-logo">T-Series</div>
+      <div class="partner-logo">SaReGaMa</div>
+      <div class="partner-logo">Zee Music</div>
+      <div class="partner-logo">Sony Music IN</div>
+      <div class="partner-logo">Hungama</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ════════════════════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="cta-band sr">
+      <div style="position:relative;z-index:1;">
+        <div class="section-eyebrow mx-auto justify-content-center">Ready?</div>
+        <h2 class="section-heading mt-2">Join <span class="grad">Batch 12</span></h2>
+        <p class="section-body mx-auto text-center mt-3 mb-4">Applications are open. Only 7 seats remain in our June 2025 batch.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="index.html#enroll" class="btn-av btn-primary"><i class="fas fa-graduation-cap"></i>Enroll Now</a>
+          <a href="courses.html"      class="btn-av btn-outline"><i class="fas fa-book-open"></i>View Courses</a>
+          <a href="contact.html"      class="btn-av btn-ghost"><i class="fas fa-phone"></i>Talk To Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ════════════════════════════════ -->
+<footer id="av-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-logo-text">Avotune</div>
+        <div class="footer-sub">Studio</div>
+        <p class="footer-desc">Delhi's premier music production studio and training institute — building the next generation of Indian music producers.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Navigate</div>
+        <a href="index.html"   class="footer-link">Home</a>
+        <a href="about.html"   class="footer-link">About Us</a>
+        <a href="courses.html" class="footer-link">Courses</a>
+        <a href="blog.html"    class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Courses</div>
+        <a href="courses.html" class="footer-link">MMPM Flagship</a>
+        <a href="courses.html" class="footer-link">Mixing Bootcamp</a>
+        <a href="courses.html" class="footer-link">Sound Design</a>
+        <a href="courses.html" class="footer-link">DJ Masterclass</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-col-title">Contact</div>
+        <p class="footer-contact">
+          <i class="fas fa-map-marker-alt"></i>42, Music Lane, Lajpat Nagar, Delhi<br>
+          <i class="fas fa-envelope"></i>hello@avotunesudio.in<br>
+          <i class="fas fa-phone"></i>+91 98765 43210<br>
+          <i class="fas fa-clock"></i>Mon–Sat · 10 AM – 8 PM
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Avotune Studio. All rights reserved.</span>
+      <span class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Player -->
+<div id="float-player">
+  <div class="fp-vinyl" id="fp-vinyl"><i class="fas fa-music"></i></div>
+  <div class="fp-meta">
+    <div class="fp-song" id="fp-title">Avotune Vibe Mix</div>
+    <div class="fp-artist" id="fp-artist">Avotune Beats</div>
+  </div>
+  <div class="fp-progress-wrap">
+    <div class="fp-progress"><div class="fp-bar" id="fp-bar"></div></div>
+    <div class="fp-time" id="fp-time">0:00 / 3:00</div>
+  </div>
+  <div class="fp-controls">
+    <button class="fp-btn" id="fp-prev"><i class="fas fa-backward-step"></i></button>
+    <button class="fp-play-btn" id="fp-play"><i class="fas fa-play" id="fp-icon"></i></button>
+    <button class="fp-btn" id="fp-next"><i class="fas fa-forward-step"></i></button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

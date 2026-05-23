@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Avotune Studio Blog — tips, tutorials and stories from the world of music production."/>
+  <title>Blog — Avotune Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/blog.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<canvas id="av-particles"></canvas>
+<div class="nav-overlay"></div>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════════════════ -->
+<nav id="av-nav">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="nav-logo text-decoration-none">
+        <span class="nav-logo-text">Avotune</span>
+        <span class="nav-logo-sub">Studio</span>
+      </a>
+      <div class="nav-links-wrap d-flex align-items-center gap-3">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-primary ms-2">Enroll Now</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ PAGE HERO ════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1800&q=80" alt="Blog"/>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-grid"></div>
+  </div>
+  <div class="container page-hero-content">
+    <div class="page-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Blog</span>
+    </div>
+    <div class="section-eyebrow">Knowledge Hub</div>
+    <h1 class="display-title">The <span class="text-grad">Beat</span><br>Drops Here</h1>
+    <p class="section-body mt-3" style="max-width:500px;">
+      Production tips, mixing secrets, artist stories, and everything you need to level up your sound.
+    </p>
+    <div class="mt-4 blog-search-wrap">
+      <i class="fas fa-search blog-search-icon"></i>
+      <input type="text" class="blog-search" placeholder="Search articles…"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BLOG CONTENT ═════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- ── MAIN COLUMN ────────────────────────────────────── -->
+      <div class="col-lg-8">
+
+        <!-- Category filter -->
+        <div class="cat-tabs sr">
+          <button class="cat-tab active" data-filter="all">All</button>
+          <button class="cat-tab" data-filter="production">Production</button>
+          <button class="cat-tab" data-filter="mixing">Mixing</button>
+          <button class="cat-tab" data-filter="gear">Gear</button>
+          <button class="cat-tab" data-filter="career">Career</button>
+          <button class="cat-tab" data-filter="interviews">Interviews</button>
+        </div>
+
+        <!-- Featured post -->
+        <div class="blog-featured sr">
+          <div class="bf-img">
+            <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=900&q=80" alt="Featured Post"/>
+            <div class="bf-img-overlay"></div>
+            <div class="bf-badge">Featured</div>
+          </div>
+          <div class="bf-body">
+            <div class="bf-cat">Production</div>
+            <h2 class="bf-title"><a href="blog-detail.html">The Complete Guide to Mixing Low End: Bass, Kick & Sub in 2025</a></h2>
+            <p class="bf-excerpt">Low end is the foundation of every great mix. In this in-depth guide, we break down sidechain compression, frequency carving, and mono compatibility — the three pillars of a punchy, club-ready bottom end.</p>
+            <div class="bf-meta">
+              <div class="bf-author">
+                <div class="bf-avatar">A</div>
+                <div>
+                  <div class="bf-author-name">Aryan Mehta</div>
+                  <div class="bf-date">May 14, 2025</div>
+                </div>
+              </div>
+              <div class="bf-read-time"><i class="fas fa-clock" style="color:var(--pink);margin-right:5px;"></i>8 min read</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog grid -->
+        <div class="blog-grid">
+
+          <div class="blog-card sr sr-d1" data-cat="mixing">
+            <div class="bc-img">
+              <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=700&q=80" alt="Mixing"/>
+              <div class="bc-img-overlay"></div>
+              <div class="bc-cat">Mixing</div>
+            </div>
+            <div class="bc-body">
+              <div class="bc-title"><a href="blog-detail.html">EQ Cheat Sheet: Where Every Instrument Lives in the Frequency Spectrum</a></div>
+              <p class="bc-excerpt">A practical visual guide to the frequency range of 22 instruments — vocals, kick, snare, guitars, synths, and more. Bookmark this one.</p>
+              <div class="bc-footer">
+                <div class="bc-author">
+                  <div class="bc-av">A</div>
+                  <div><div class="bc-name">Aryan Mehta</div><div class="bc-date">May 8, 2025</div></div>
+                </div>
+                <div class="bc-read"><i class="fas fa-clock"></i><span class="bc-read-time-val">5 min read</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card sr sr-d2" data-cat="production">
+            <div class="bc-img">
+              <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=700&q=80" alt="Production"/>
+              <div class="bc-img-overlay"></div>
+              <div class="bc-cat">Production</div>
+            </div>
+            <div class="bc-body">
+              <div class="bc-title"><a href="blog-detail.html">FL Studio vs Ableton vs Logic: Which DAW Should You Learn in 2025?</a></div>
+              <p class="bc-excerpt">We break down the pros, cons, and workflows of all three major DAWs so you can make the right choice for your style of music.</p>
+              <div class="bc-footer">
+                <div class="bc-author">
+                  <div class="bc-av">P</div>
+                  <div><div class="bc-name">Priya Nair</div><div class="bc-date">May 2, 2025</div></div>
+                </div>
+                <div class="bc-read"><i class="fas fa-clock"></i><span class="bc-read-time-val">6 min read</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card sr sr-d3" data-cat="gear">
+            <div class="bc-img">
+              <img src="https://images.unsplash.com/photo-1508854710579-5cecc3a416f5?w=700&q=80" alt="Gear"/>
+              <div class="bc-img-overlay"></div>
+              <div class="bc-cat">Gear</div>
+            </div>
+            <div class="bc-body">
+              <div class="bc-title"><a href="blog-detail.html">Best Studio Monitors Under ₹20,000: Honest Reviews for Bedroom Producers</a></div>
+              <p class="bc-excerpt">You don't need ₹1 lakh monitors to mix well. We tested 8 budget-friendly options so you don't have to waste your money.</p>
+              <div class="bc-footer">
+                <div class="bc-author">
+                  <div class="bc-av">K</div>
+                  <div><div class="bc-name">Karan Bhatia</div><div class="bc-date">Apr 24, 2025</div></div>
+                </div>
+                <div class="bc-read"><i class="fas fa-clock"></i><span class="bc-read-time-val">7 min read</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card sr" data-cat="career">
+            <div class="bc-img">
+              <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&q=80" alt="Career"/>
+              <div class="bc-img-overlay"></div>
+              <div class="bc-cat">Career</div>
+            </div>
+            <div class="bc-body">
+              <div class="bc-title"><a href="blog-detail.html">How to Get Your First Paid Music Production Client (Even With 0 Followers)</a></div>
+              <p class="bc-excerpt">A step-by-step playbook for landing your first client as a new producer — without a big portfolio, social media presence, or industry connections.</p>
+              <div class="bc-footer">
+                <div class="bc-author">
+                  <div class="bc-av">S</div>
+                  <div><div class="bc-name">Simran Kaur</div><div class="bc-date">Apr 18, 2025</div></div>
+                </div>
+                <div class="bc-read"><i class="fas fa-clock"></i><span class="bc-read-time-val">9 min read</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card sr sr-d1" data-cat="interviews">
+            <div class="bc-img">
+              <img src="https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?w=700&q=80" alt="Interview"/>
+              <div class="bc-img-overlay"></div>
+              <div class="bc-cat">Interviews</div>
+            </div>
+            <div class="bc-body">
+              <div class="bc-title"><a href="blog-detail.html">Alumni Spotlight: How Rohit Went from IT Engineer to Bollywood Sound Designer</a></div>
+              <p class="bc-excerpt">A candid conversation with Avotune graduate Rohit Verma, now a sound designer on three Bollywood films, about his switch from IT to music.</p>
+              <div class="bc-footer">
+                <div class="bc-author">
+                  <div class="bc-av">A</div>
+                  <div><div class="bc-name">Aryan Mehta</div><div class="bc-date">Apr 10, 2025</div></div>
+                </div>
+                <div class="bc-read"><i class="fas fa-clock"></i><span class="bc-read-time-val">10 min read</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card sr sr-d2" data-cat="production">
+            <div class="bc-img">
+              <img src="https://images.unsplash.com/photo-1563330232-57114bb0823c?w=700&q=80" alt="Sound Design"/>
+              <div class="bc-img-overlay"></div>
+              <div class="bc-cat">Production</div>
+            </div>
+            <div class="bc-body">
+              <div class="bc-title"><a href="blog-detail.html">Sound Design 101: Building a Signature Synth Patch from Scratch</a></div>
+              <p class="bc-excerpt">Learn the fundamentals of subtractive synthesis — oscillators, filters, envelopes, and LFOs — to create sounds that are uniquely yours.</p>
+              <div class="bc-footer">
+                <div class="bc-author">
+                  <div class="bc-av">P</div>
+                  <div><div class="bc-name">Priya Nair</div><div class="bc-date">Apr 3, 2025</div></div>
+                </div>
+                <div class="bc-read"><i class="fas fa-clock"></i><span class="bc-read-time-val">6 min read</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /blog-grid -->
+
+        <!-- Pagination -->
+        <div class="pagination-wrap sr">
+          <button class="pg-btn pg-arrow"><i class="fas fa-chevron-left"></i></button>
+          <button class="pg-btn active" data-page="1">1</button>
+          <button class="pg-btn" data-page="2">2</button>
+          <button class="pg-btn" data-page="3">3</button>
+          <span style="color:var(--muted);font-family:var(--font-mono);font-size:12px;padding:0 4px;">…</span>
+          <button class="pg-btn" data-page="8">8</button>
+          <button class="pg-btn pg-arrow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+      </div><!-- /main col -->
+
+      <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+      <div class="col-lg-4 sr sr-right">
+
+        <!-- Recent Posts -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Recent Posts</div>
+          <div class="recent-post">
+            <div class="rp-img"><img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=200&q=70" alt=""/></div>
+            <div>
+              <div class="rp-title"><a href="blog-detail.html">Complete Guide to Mixing Low End in 2025</a></div>
+              <div class="rp-date">May 14, 2025</div>
+            </div>
+          </div>
+          <div class="recent-post">
+            <div class="rp-img"><img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=200&q=70" alt=""/></div>
+            <div>
+              <div class="rp-title"><a href="blog-detail.html">EQ Cheat Sheet: Every Instrument's Frequency Range</a></div>
+              <div class="rp-date">May 8, 2025</div>
+            </div>
+          </div>
+          <div class="recent-post">
+            <div class="rp-img"><img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=200&q=70" alt=""/></div>
+            <div>
+              <div class="rp-title"><a href="blog-detail.html">FL Studio vs Ableton vs Logic — 2025</a></div>
+              <div class="rp-date">May 2, 2025</div>
+            </div>
+          </div>
+          <div class="recent-post">
+            <div class="rp-img"><img src="https://images.unsplash.com/photo-1508854710579-5cecc3a416f5?w=200&q=70" alt=""/></div>
+            <div>
+              <div class="rp-title"><a href="blog-detail.html">Best Studio Monitors Under ₹20,000</a></div>
+              <div class="rp-date">Apr 24, 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Topics</div>
+          <div class="sidebar-tags">
+            <a href="#" class="sidebar-tag">Mixing</a>
+            <a href="#" class="sidebar-tag">Mastering</a>
+            <a href="#" class="sidebar-tag">FL Studio</a>
+            <a href="#" class="sidebar-tag">Ableton</a>
+            <a href="#" class="sidebar-tag">Sound Design</a>
+            <a href="#" class="sidebar-tag">EQ Tips</a>
+            <a href="#" class="sidebar-tag">Compression</a>
+            <a href="#" class="sidebar-tag">Bollywood</a>
+            <a href="#" class="sidebar-tag">Gear Reviews</a>
+            <a href="#" class="sidebar-tag">Career</a>
+            <a href="#" class="sidebar-tag">Music Business</a>
+            <a href="#" class="sidebar-tag">Beginner</a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Weekly Beats</div>
+          <p style="font-family:var(--font-accent);color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:18px;">Get one music production tip delivered to your inbox every Tuesday. No spam, ever.</p>
+          <form id="newsletter-form" class="newsletter-input-wrap" novalidate>
+            <input type="email" class="nl-input" placeholder="your@email.com" required/>
+            <button type="submit" class="btn-av btn-primary w-100" style="justify-content:center;font-size:12px;">
+              <i class="fas fa-paper-plane me-1"></i>Subscribe Free
+            </button>
+          </form>
+        </div>
+
+        <!-- Enroll CTA -->
+        <div class="sidebar-card" style="background:linear-gradient(135deg,rgba(255,31,142,.08),rgba(10,240,255,.06));border-color:var(--border-hot);">
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:3px;color:var(--pink);text-transform:uppercase;margin-bottom:12px;">Ready to Level Up?</div>
+          <h4 style="font-family:var(--font-display);font-size:24px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Join Our Next Batch</h4>
+          <p style="font-family:var(--font-accent);color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:18px;">Stop just reading about music production. Come and make it — in a real studio with a real mentor.</p>
+          <a href="index.html#enroll" class="btn-av btn-primary w-100" style="justify-content:center;font-size:12px;">
+            <i class="fas fa-graduation-cap me-1"></i>Enroll Now
+          </a>
+        </div>
+
+      </div><!-- /sidebar -->
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════════════════ -->
+<footer id="av-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-logo-text">Avotune</div>
+        <div class="footer-sub">Studio</div>
+        <p class="footer-desc">Delhi's premier music production studio and training institute.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Navigate</div>
+        <a href="index.html"   class="footer-link">Home</a>
+        <a href="about.html"   class="footer-link">About Us</a>
+        <a href="courses.html" class="footer-link">Courses</a>
+        <a href="blog.html"    class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Topics</div>
+        <a href="#" class="footer-link">Mixing Tutorials</a>
+        <a href="#" class="footer-link">Gear Reviews</a>
+        <a href="#" class="footer-link">Artist Interviews</a>
+        <a href="#" class="footer-link">Career Tips</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-col-title">Contact</div>
+        <p class="footer-contact">
+          <i class="fas fa-map-marker-alt"></i>42, Music Lane, Lajpat Nagar, Delhi<br>
+          <i class="fas fa-envelope"></i>hello@avotunesudio.in<br>
+          <i class="fas fa-phone"></i>+91 98765 43210
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Avotune Studio. All rights reserved.</span>
+      <span class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Player -->
+<div id="float-player">
+  <div class="fp-vinyl" id="fp-vinyl"><i class="fas fa-music"></i></div>
+  <div class="fp-meta">
+    <div class="fp-song" id="fp-title">Avotune Vibe Mix</div>
+    <div class="fp-artist" id="fp-artist">Avotune Beats</div>
+  </div>
+  <div class="fp-progress-wrap">
+    <div class="fp-progress"><div class="fp-bar" id="fp-bar"></div></div>
+    <div class="fp-time" id="fp-time">0:00 / 3:00</div>
+  </div>
+  <div class="fp-controls">
+    <button class="fp-btn" id="fp-prev"><i class="fas fa-backward-step"></i></button>
+    <button class="fp-play-btn" id="fp-play"><i class="fas fa-play" id="fp-icon"></i></button>
+    <button class="fp-btn" id="fp-next"><i class="fas fa-forward-step"></i></button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+<script src="js/blog.js"></script>
+</body>
+</html>

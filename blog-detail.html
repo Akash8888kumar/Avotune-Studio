@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The Complete Guide to Mixing Low End — Avotune Studio Blog"/>
+  <title>Mixing Low End: The Complete Guide — Avotune Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/blog.css"/>
+  <link rel="stylesheet" href="css/blog-detail.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<canvas id="av-particles"></canvas>
+<div class="nav-overlay"></div>
+
+<!-- Reading progress -->
+<div id="read-progress" style="position:fixed;top:0;left:0;height:3px;background:var(--grad-main);z-index:1001;width:0;transition:width .15s;"></div>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════════════════ -->
+<nav id="av-nav">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="nav-logo text-decoration-none">
+        <span class="nav-logo-text">Avotune</span>
+        <span class="nav-logo-sub">Studio</span>
+      </a>
+      <div class="nav-links-wrap d-flex align-items-center gap-3">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-primary ms-2">Enroll Now</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ POST HERO ═════════════════════════════ -->
+<section class="post-hero">
+  <div class="post-hero-bg">
+    <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=1800&q=80" alt="Mixing Low End"/>
+    <div class="post-hero-gradient"></div>
+  </div>
+  <div class="container post-hero-content">
+    <div class="page-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="blog.html">Blog</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Mixing Guide</span>
+    </div>
+    <div class="post-category">Mixing</div>
+    <h1 class="post-title">The Complete Guide<br>to <span class="text-grad">Mixing</span> Low End:<br>Bass, Kick &amp; Sub</h1>
+    <div class="post-meta-row mt-4">
+      <div class="pm-author">
+        <div class="pm-avatar">A</div>
+        <div>
+          <div class="pm-author-name">Aryan Mehta</div>
+          <div class="pm-author-role">Head Instructor</div>
+        </div>
+      </div>
+      <div class="pm-sep"></div>
+      <div class="pm-item"><i class="fas fa-calendar"></i>May 14, 2025</div>
+      <div class="pm-item"><i class="fas fa-clock"></i><span id="post-read-time">8 min read</span></div>
+      <div class="pm-item"><i class="fas fa-eye"></i>4.2k views</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ARTICLE ═══════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- ── ARTICLE BODY ────────────────────────────────────── -->
+      <div>
+
+        <!-- Mobile share bar -->
+        <div class="share-bar d-block d-lg-none mb-4 sr">
+          <span class="share-label">Share</span>
+          <button class="share-btn" id="share-twitter-mob"><i class="fab fa-twitter"></i></button>
+          <button class="share-btn" id="share-facebook-mob"><i class="fab fa-facebook-f"></i></button>
+          <button class="share-btn" id="share-whatsapp-mob"><i class="fab fa-whatsapp"></i></button>
+          <button class="share-btn" id="share-copy-mob" title="Copy link"><i class="fas fa-link"></i></button>
+        </div>
+
+        <article class="article-body sr">
+
+          <p>
+            Low end is the heartbeat of a mix. Get it right and your track sounds massive, club-ready, and powerful. Get it wrong and every listener — consciously or not — feels something is off. In this guide, we'll walk through the three pillars of a perfect low end: <strong>sidechain compression</strong>, <strong>frequency carving</strong>, and <strong>mono compatibility</strong>.
+          </p>
+
+          <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=900&q=80" alt="Mixing Console"/>
+
+          <h2 id="why-low-end-matters">Why Low End Is the Hardest Part of Mixing</h2>
+          <p>
+            Most home studio monitors don't reproduce frequencies below 60 Hz accurately. This means a huge portion of your mix — the sub bass and the fundamental of your kick — is essentially invisible to you while you work. You can't hear it properly, yet it affects how your mix translates on club systems, earbuds, and streaming platforms.
+          </p>
+          <p>
+            Professional mix engineers solve this in three ways: using a spectrum analyser alongside their ears, checking mixes on multiple speaker systems, and — most importantly — understanding the <em>rules of the frequency spectrum</em> so well that they can make correct decisions even without perfect monitoring.
+          </p>
+
+          <div class="key-box">
+            <div class="key-box-title"><i class="fas fa-lightbulb"></i>Key Takeaway</div>
+            <ul>
+              <li>Sub bass lives from 20–60 Hz. Keep it mono, keep it clean.</li>
+              <li>The kick drum's body punch sits around 60–120 Hz.</li>
+              <li>Bass guitar and synth bass fundamentals dominate 80–200 Hz.</li>
+              <li>Low-mid mud accumulates between 200–350 Hz — clean it up.</li>
+            </ul>
+          </div>
+
+          <h2 id="sidechain">Sidechain Compression: Making Kick and Bass Work Together</h2>
+          <p>
+            The most common low-end problem in modern music is the kick and bass fighting each other. Both instruments have energy in the same frequency range (80–120 Hz), and when they both hit at the same time, you get a muddy, undefined collision.
+          </p>
+          <p>
+            The solution is <strong>sidechain compression</strong> — routing the kick drum's signal to trigger a compressor placed on the bass track. Every time the kick hits, the compressor briefly ducks the bass volume by a few decibels, creating space for the kick to punch through. The result is that clean, bouncy "pumping" energy you hear in Afrobeats, EDM, and hip-hop.
+          </p>
+
+          <blockquote>
+            <p>"The kick and bass should dance together, not fight. Sidechain gives them room to breathe."<br><strong style="color:var(--pink);font-size:14px;">— Aryan Mehta, Avotune Studio</strong></p>
+          </blockquote>
+
+          <h3 id="sidechain-settings">Recommended Sidechain Settings to Start With</h3>
+          <ul>
+            <li><strong>Attack:</strong> 2–5ms (fast enough to catch the transient)</li>
+            <li><strong>Release:</strong> 50–120ms (let the bass breathe back naturally)</li>
+            <li><strong>Ratio:</strong> 4:1 to 8:1 (enough duck without sounding obvious)</li>
+            <li><strong>Threshold:</strong> Set so the GR meter shows 3–6 dB of reduction</li>
+          </ul>
+
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=900&q=80" alt="Studio Gear"/>
+
+          <h2 id="frequency-carving">Frequency Carving: EQ for a Clean Low End</h2>
+          <p>
+            Even with sidechain dialled in, you'll still have frequency overlap. This is where surgical EQ comes in. The goal is to carve a defined space for each element so they're complementary, not competitive.
+          </p>
+
+          <pre><code>KICK DRUM EQ APPROACH
+─────────────────────────────────────────────
+Add    : +3 dB @ 60–80 Hz   → Thump / sub body
+Add    : +2 dB @ 3–5 kHz    → Transient click
+Cut    : -4 dB @ 200–350 Hz → Reduce boxiness
+High-pass: 30 Hz            → Remove inaudible sub clutter
+
+BASS / 808 EQ APPROACH
+─────────────────────────────────────────────
+Add    : +2 dB @ 80–120 Hz  → Fundamental warmth
+Cut    : -3 dB @ 60 Hz      → Leave this for the kick
+Cut    : -4 dB @ 250–400 Hz → Clean up mud
+High-pass: 40 Hz            → Remove sub rumble</code></pre>
+
+          <h2 id="mono-compatibility">Mono Compatibility: The Most Overlooked Step</h2>
+          <p>
+            Here's a fact that surprises many new producers: <strong>most club speakers, phone speakers, and mono Bluetooth devices collapse stereo information below ~120 Hz to mono</strong>. This means if your bass is wide and stereo, it will actually cancel itself out on these systems — leaving you with almost no low end where it matters most.
+          </p>
+          <p>
+            The rule is simple: <strong>keep everything below 120 Hz in mono</strong>. In most DAWs, you can do this with a mid/side EQ or a dedicated mono-bass plugin — cut the side channel (stereo information) on your bass and kick tracks below 120 Hz.
+          </p>
+
+          <div class="key-box" style="background:rgba(255,31,142,.04);border-color:rgba(255,31,142,.2);">
+            <div class="key-box-title" style="color:var(--pink);"><i class="fas fa-triangle-exclamation"></i>Common Mistake</div>
+            <p style="margin:0;font-family:var(--font-accent);color:var(--muted);font-size:15px;line-height:1.7;">
+              Using stereo chorus or stereo wideners on your bass synth without cutting the low-frequency stereo content. This sounds amazing in your headphones but destroys your low end on mono systems.
+            </p>
+          </div>
+
+          <h2 id="final-check">The 3-System Check</h2>
+          <p>Before calling a mix done, always check your low end on at least three different playback systems:</p>
+          <ol>
+            <li><strong>Studio monitors</strong> (or whatever you mix on)</li>
+            <li><strong>Phone or laptop speaker</strong> (small, harsh, mono)</li>
+            <li><strong>Earphones / AirPods</strong> (how most people will actually hear it)</li>
+          </ol>
+          <p>
+            If the kick still punches and the bass still grooves on all three — your low end is done. If the bass disappears on your phone speaker, you have a mono compatibility problem. If the kick sounds boomy and undefined on your monitors, go back to your EQ.
+          </p>
+
+          <p>
+            Low end mastery takes time and repetition, but it is absolutely a learnable skill. At Avotune Studio, every student mixes on our calibrated KRK Rokit 8 monitors paired with a subwoofer — so you can hear exactly what you're doing from day one.
+          </p>
+
+          <!-- Tags -->
+          <div class="post-tags">
+            <a href="#" class="post-tag">Mixing</a>
+            <a href="#" class="post-tag">Low End</a>
+            <a href="#" class="post-tag">Sidechain</a>
+            <a href="#" class="post-tag">EQ</a>
+            <a href="#" class="post-tag">Bass</a>
+            <a href="#" class="post-tag">Kick Drum</a>
+            <a href="#" class="post-tag">Beginners</a>
+          </div>
+
+          <!-- Like + share row -->
+          <div class="d-flex align-items-center gap-3 flex-wrap mt-4 pt-4" style="border-top:1px solid var(--border);">
+            <button id="like-btn" class="share-btn" style="width:auto;padding:10px 18px;border-radius:100px;display:flex;align-items:center;gap:8px;font-family:var(--font-accent);font-size:14px;">
+              <i class="far fa-heart"></i><span id="like-count">142</span> Likes
+            </button>
+            <div class="share-bar" style="position:static;">
+              <span class="share-label">Share</span>
+              <button class="share-btn" id="share-twitter"><i class="fab fa-twitter"></i></button>
+              <button class="share-btn" id="share-facebook"><i class="fab fa-facebook-f"></i></button>
+              <button class="share-btn" id="share-linkedin"><i class="fab fa-linkedin-in"></i></button>
+              <button class="share-btn" id="share-whatsapp"><i class="fab fa-whatsapp"></i></button>
+              <button class="share-btn" id="share-copy" title="Copy link"><i class="fas fa-link"></i></button>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- Author bio -->
+        <div class="author-bio-card sr">
+          <div class="ab-avatar">A</div>
+          <div>
+            <div class="ab-name">Aryan Mehta</div>
+            <div class="ab-role">Head Instructor · Music Producer</div>
+            <p class="ab-bio">Aryan has been producing and mixing professionally for 10+ years. His work spans Bollywood, indie, EDM and everything in between. At Avotune, he channels that experience into teaching the next generation of producers.</p>
+            <div class="social-row mt-2">
+              <a href="#" class="soc-btn" style="width:34px;height:34px;"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="soc-btn" style="width:34px;height:34px;"><i class="fab fa-spotify"></i></a>
+              <a href="#" class="soc-btn" style="width:34px;height:34px;"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments section -->
+        <div class="mt-5 sr">
+          <h3 style="font-family:var(--font-display);font-size:28px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">
+            Comments <span id="comment-count" style="color:var(--pink);">6</span>
+          </h3>
+          <div id="comments-list">
+            <div class="comment-card">
+              <div class="comment-avatar" style="background:var(--grad-main);">R</div>
+              <div>
+                <div class="comment-name">Rohan S.</div>
+                <div class="comment-date">May 15, 2025</div>
+                <div class="comment-text">This is gold. The sidechain settings are exactly what I needed — I've been using way too slow a release time. The 3-system check is something I'm implementing from today.</div>
+                <button class="comment-reply">↩ Reply</button>
+              </div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-avatar" style="background:var(--grad-alt);">P</div>
+              <div>
+                <div class="comment-name">Prerna K.</div>
+                <div class="comment-date">May 15, 2025</div>
+                <div class="comment-text">The mono compatibility section finally explained why my tracks always sound thin on Bluetooth speakers. Never realised the stereo width was cancelling the bass. Game changer!</div>
+                <button class="comment-reply">↩ Reply</button>
+              </div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-avatar" style="background:var(--grad-cool);">M</div>
+              <div>
+                <div class="comment-name">Mihir T.</div>
+                <div class="comment-date">May 16, 2025</div>
+                <div class="comment-text">Can you do a follow-up specifically on 808 mixing for trap and Bollywood? The fundamentals shift a lot in those contexts and I'd love an Avotune take on it.</div>
+                <button class="comment-reply">↩ Reply</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment form -->
+          <div class="av-card mt-4" style="padding:30px;">
+            <h5 style="font-family:var(--font-display);font-size:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Leave a Comment</h5>
+            <form id="comment-form" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="av-form-group">
+                    <label class="av-label">Name</label>
+                    <input type="text" name="name" class="av-input" placeholder="Your name" required/>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="av-form-group">
+                    <label class="av-label">Email (not published)</label>
+                    <input type="email" name="email" class="av-input" placeholder="you@email.com"/>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="av-form-group">
+                    <label class="av-label">Comment</label>
+                    <textarea name="comment" class="av-textarea" rows="4" placeholder="Share your thoughts…" required></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-av btn-primary submit-btn">
+                    <i class="fas fa-paper-plane me-2"></i>Post Comment
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div><!-- /article body -->
+
+      <!-- ── ARTICLE SIDEBAR ─────────────────────────────────── -->
+      <aside class="article-sidebar">
+
+        <!-- Vertical share bar (desktop) -->
+        <div class="share-bar d-none d-lg-flex sr">
+          <span class="share-label">Share</span>
+          <button class="share-btn" id="share-twitter-side" title="Twitter"><i class="fab fa-twitter"></i></button>
+          <button class="share-btn" id="share-facebook-side" title="Facebook"><i class="fab fa-facebook-f"></i></button>
+          <button class="share-btn" id="share-linkedin-side" title="LinkedIn"><i class="fab fa-linkedin-in"></i></button>
+          <button class="share-btn" id="share-whatsapp-side" title="WhatsApp"><i class="fab fa-whatsapp"></i></button>
+          <button class="share-btn" id="share-copy-side" title="Copy link"><i class="fas fa-link"></i></button>
+        </div>
+
+        <!-- TOC -->
+        <div class="sidebar-card sr sr-right">
+          <div class="sidebar-title">In This Article</div>
+          <ul class="toc-list">
+            <li class="toc-item"><a href="#why-low-end-matters">Why Low End Is Hardest</a></li>
+            <li class="toc-item"><a href="#sidechain">Sidechain Compression</a></li>
+            <li class="toc-item"><a href="#sidechain-settings">Sidechain Settings</a></li>
+            <li class="toc-item"><a href="#frequency-carving">Frequency Carving</a></li>
+            <li class="toc-item"><a href="#mono-compatibility">Mono Compatibility</a></li>
+            <li class="toc-item"><a href="#final-check">The 3-System Check</a></li>
+          </ul>
+        </div>
+
+        <!-- Author -->
+        <div class="sidebar-card sr sr-right">
+          <div class="sidebar-title">Written By</div>
+          <div class="sa-avatar"><i class="fas fa-user" style="font-size:22px;"></i></div>
+          <div class="sa-name">Aryan Mehta</div>
+          <div class="sa-role">Head Instructor</div>
+          <p class="sa-bio">10+ years of professional music production, mixing, and teaching. Bollywood credits, international releases, and 500+ students trained.</p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-card sr sr-right">
+          <div class="sidebar-title">Weekly Tips</div>
+          <p style="font-family:var(--font-accent);color:var(--muted);font-size:13.5px;line-height:1.7;margin-bottom:16px;">One production tip per week. No spam.</p>
+          <form class="sidebar-nl-form" novalidate>
+            <input type="email" class="nl-input mb-2" placeholder="your@email.com" required style="background:var(--dark3);"/>
+            <button type="submit" class="btn-av btn-primary w-100" style="justify-content:center;font-size:12px;">
+              <i class="fas fa-paper-plane me-1"></i>Subscribe
+            </button>
+          </form>
+        </div>
+
+        <!-- Enroll CTA -->
+        <div class="sidebar-card sr sr-right" style="background:linear-gradient(135deg,rgba(255,31,142,.08),rgba(10,240,255,.06));border-color:var(--border-hot);">
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:3px;color:var(--pink);text-transform:uppercase;margin-bottom:10px;">Learn This In Studio</div>
+          <h4 style="font-family:var(--font-display);font-size:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Join Avotune MMPM</h4>
+          <p style="font-family:var(--font-accent);color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:16px;">Master low end — and every other part of mixing — hands-on with a professional mentor.</p>
+          <a href="index.html#enroll" class="btn-av btn-primary w-100" style="justify-content:center;font-size:12px;">
+            <i class="fas fa-graduation-cap me-1"></i>Enroll Now
+          </a>
+        </div>
+
+      </aside>
+
+    </div><!-- /article-layout -->
+  </div>
+</section>
+
+<!-- ═══════════════════ RELATED POSTS ════════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Keep Reading</div>
+      <h2 class="section-heading">Related <span class="grad">Articles</span></h2>
+    </div>
+    <div class="related-grid">
+      <div class="blog-card sr sr-d1">
+        <div class="bc-img">
+          <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=700&q=80" alt="EQ"/>
+          <div class="bc-img-overlay"></div>
+          <div class="bc-cat">Mixing</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-title"><a href="blog-detail.html">EQ Cheat Sheet: Where Every Instrument Lives in the Frequency Spectrum</a></div>
+          <p class="bc-excerpt">A practical visual guide to the frequency range of 22 instruments — vocals, kick, snare, guitars, synths, and more.</p>
+          <div class="bc-footer">
+            <div class="bc-author"><div class="bc-av">A</div><div><div class="bc-name">Aryan Mehta</div><div class="bc-date">May 8, 2025</div></div></div>
+            <div class="bc-read"><i class="fas fa-clock"></i> 5 min</div>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card sr sr-d2">
+        <div class="bc-img">
+          <img src="https://images.unsplash.com/photo-1563330232-57114bb0823c?w=700&q=80" alt="Sound Design"/>
+          <div class="bc-img-overlay"></div>
+          <div class="bc-cat">Production</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-title"><a href="blog-detail.html">Sound Design 101: Building a Signature Synth Patch from Scratch</a></div>
+          <p class="bc-excerpt">Learn oscillators, filters, envelopes, and LFOs to create sounds that are uniquely yours.</p>
+          <div class="bc-footer">
+            <div class="bc-author"><div class="bc-av">P</div><div><div class="bc-name">Priya Nair</div><div class="bc-date">Apr 3, 2025</div></div></div>
+            <div class="bc-read"><i class="fas fa-clock"></i> 6 min</div>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card sr sr-d3">
+        <div class="bc-img">
+          <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=700&q=80" alt="DAW"/>
+          <div class="bc-img-overlay"></div>
+          <div class="bc-cat">Production</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-title"><a href="blog-detail.html">FL Studio vs Ableton vs Logic: Which DAW Should You Learn in 2025?</a></div>
+          <p class="bc-excerpt">Pros, cons, and workflows of all three major DAWs so you can make the right choice for your music style.</p>
+          <div class="bc-footer">
+            <div class="bc-author"><div class="bc-av">P</div><div><div class="bc-name">Priya Nair</div><div class="bc-date">May 2, 2025</div></div></div>
+            <div class="bc-read"><i class="fas fa-clock"></i> 6 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════════════════ -->
+<footer id="av-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-logo-text">Avotune</div>
+        <div class="footer-sub">Studio</div>
+        <p class="footer-desc">Delhi's premier music production studio and training institute.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Navigate</div>
+        <a href="index.html"   class="footer-link">Home</a>
+        <a href="about.html"   class="footer-link">About Us</a>
+        <a href="courses.html" class="footer-link">Courses</a>
+        <a href="blog.html"    class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Topics</div>
+        <a href="#" class="footer-link">Mixing Tutorials</a>
+        <a href="#" class="footer-link">Gear Reviews</a>
+        <a href="#" class="footer-link">Artist Interviews</a>
+        <a href="#" class="footer-link">Career Tips</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-col-title">Contact</div>
+        <p class="footer-contact">
+          <i class="fas fa-map-marker-alt"></i>42, Music Lane, Lajpat Nagar, Delhi<br>
+          <i class="fas fa-envelope"></i>hello@avotunesudio.in<br>
+          <i class="fas fa-phone"></i>+91 98765 43210
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Avotune Studio. All rights reserved.</span>
+      <span class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Player -->
+<div id="float-player">
+  <div class="fp-vinyl" id="fp-vinyl"><i class="fas fa-music"></i></div>
+  <div class="fp-meta">
+    <div class="fp-song" id="fp-title">Avotune Vibe Mix</div>
+    <div class="fp-artist" id="fp-artist">Avotune Beats</div>
+  </div>
+  <div class="fp-progress-wrap">
+    <div class="fp-progress"><div class="fp-bar" id="fp-bar"></div></div>
+    <div class="fp-time" id="fp-time">0:00 / 3:00</div>
+  </div>
+  <div class="fp-controls">
+    <button class="fp-btn" id="fp-prev"><i class="fas fa-backward-step"></i></button>
+    <button class="fp-play-btn" id="fp-play"><i class="fas fa-play" id="fp-icon"></i></button>
+    <button class="fp-btn" id="fp-next"><i class="fas fa-forward-step"></i></button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+<script src="js/blog-detail.js"></script>
+</body>
+</html>

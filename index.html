@@ -3,1029 +3,388 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Avotune Studio – Master Music Production</title>
+  <meta name="description" content="Avotune Studio — India's premier music production school. Master Music Production, Mixing & Mastering with hands-on studio training."/>
+  <title>Avotune Studio — Master Music Production</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-
-  <style>
-    :root {
-      --pink: #ff2d9b;
-      --cyan: #00d4ff;
-      --purple: #8b2fc9;
-      --dark: #050508;
-      --dark2: #0d0d14;
-      --dark3: #12121c;
-      --card: #151520;
-      --border: rgba(255,255,255,0.06);
-      --text: #e8e8f0;
-      --muted: #888899;
-      --grad: linear-gradient(135deg, var(--pink), var(--cyan));
-      --grad2: linear-gradient(135deg, var(--purple), var(--pink));
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--dark);
-      color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 17px;
-      overflow-x: hidden;
-    }
-
-    /* ── CUSTOM CURSOR ─────────────────────────── */
-    .cursor { width: 12px; height: 12px; background: var(--pink); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .1s, width .2s, height .2s; }
-    .cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(255,45,155,.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .12s ease, width .2s, height .2s; }
-
-    /* ── SCROLLBAR ─────────────────────────────── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 4px; }
-
-    /* ── NOISE OVERLAY ────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 1; opacity: .5;
-    }
-
-    /* ── NAV ───────────────────────────────────── */
-    .navbar {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      padding: 18px 0;
-      background: rgba(5,5,8,0);
-      backdrop-filter: blur(0px);
-      transition: all .4s;
-    }
-    .navbar.scrolled {
-      background: rgba(5,5,8,.92);
-      backdrop-filter: blur(20px);
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .navbar-brand img { height: 48px; }
-    .nav-link {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted) !important;
-      padding: 8px 16px !important;
-      transition: color .3s;
-    }
-    .nav-link:hover { color: var(--pink) !important; }
-    .nav-cta {
-      background: var(--grad);
-      color: #fff !important;
-      border-radius: 4px;
-      padding: 8px 22px !important;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-    .nav-cta:hover { opacity: .85; }
-    .navbar-toggler { border: 1px solid var(--border); color: var(--pink); }
-    .navbar-toggler-icon { filter: invert(1); }
-
-    /* ── HERO ──────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,47,201,.18) 0%, transparent 65%),
-                  radial-gradient(ellipse 40% 40% at 80% 70%, rgba(0,212,255,.1) 0%, transparent 60%),
-                  radial-gradient(ellipse 40% 40% at 20% 30%, rgba(255,45,155,.1) 0%, transparent 60%);
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-    }
-    .hero-tag {
-      display: inline-block;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--pink);
-      border: 1px solid rgba(255,45,155,.3);
-      padding: 6px 16px;
-      border-radius: 2px;
-      margin-bottom: 24px;
-      animation: fadeUp .8s ease both;
-    }
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(52px, 9vw, 120px);
-      line-height: .95;
-      letter-spacing: 2px;
-      animation: fadeUp .8s ease .1s both;
-    }
-    .hero h1 .grad-text {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 480px;
-      line-height: 1.6;
-      margin: 20px 0 36px;
-      animation: fadeUp .8s ease .2s both;
-    }
-    .hero-btns { animation: fadeUp .8s ease .3s both; display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary-glow {
-      background: var(--grad);
-      color: #fff;
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: none;
-      padding: 14px 36px;
-      border-radius: 4px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 0 30px rgba(255,45,155,.35);
-    }
-    .btn-primary-glow:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(255,45,155,.55); }
-    .btn-outline-glow {
-      background: transparent;
-      color: var(--cyan);
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: 1px solid rgba(0,212,255,.4);
-      padding: 14px 36px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .btn-outline-glow:hover { background: rgba(0,212,255,.08); border-color: var(--cyan); }
-
-    /* ── OFFER BADGE ──────────────────────────── */
-    .offer-badge {
-      animation: fadeUp .8s ease .4s both;
-      display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 28px;
-      background: rgba(255,45,155,.08);
-      border: 1px solid rgba(255,45,155,.2);
-      border-radius: 4px;
-      padding: 12px 20px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .offer-badge strong { color: var(--pink); }
-    .pulse-dot { width: 8px; height: 8px; background: var(--pink); border-radius: 50%; animation: pulse 1.5s infinite; }
-
-    /* ── HERO VISUAL ───────────────────────────── */
-    .hero-visual {
-      position: relative;
-      display: flex; justify-content: center; align-items: center;
-      height: 500px;
-      animation: fadeUp .8s ease .2s both;
-    }
-    .vinyl-wrap {
-      position: relative;
-      width: 320px; height: 320px;
-    }
-    .vinyl {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #2a0a3a, #0a0a14);
-      border: 2px solid rgba(255,45,155,.3);
-      animation: spin 8s linear infinite;
-      position: relative;
-      box-shadow: 0 0 60px rgba(139,47,201,.4), 0 0 120px rgba(255,45,155,.15);
-    }
-    .vinyl::before {
-      content: '';
-      position: absolute; inset: 15px;
-      border-radius: 50%;
-      border: 1px solid rgba(0,212,255,.2);
-    }
-    .vinyl::after {
-      content: '';
-      position: absolute; inset: 45px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,45,155,.2);
-    }
-    .vinyl-center {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      background: var(--grad);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-      box-shadow: 0 0 30px rgba(255,45,155,.5);
-      z-index: 2;
-      animation: counter-spin 8s linear infinite;
-    }
-    .vinyl-grooves {
-      position: absolute; inset: 0;
-      border-radius: 50%;
-      background: repeating-radial-gradient(circle at center, transparent 0px, transparent 8px, rgba(255,255,255,.03) 8px, rgba(255,255,255,.03) 9px);
-    }
-    .hero-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid;
-      animation: ripple 3s ease-out infinite;
-    }
-    .hr1 { width: 360px; height: 360px; border-color: rgba(255,45,155,.15); animation-delay: 0s; }
-    .hr2 { width: 420px; height: 420px; border-color: rgba(0,212,255,.1); animation-delay: 1s; }
-    .hr3 { width: 480px; height: 480px; border-color: rgba(139,47,201,.07); animation-delay: 2s; }
-
-    .eq-bars {
-      position: absolute;
-      bottom: 20px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; gap: 5px; align-items: flex-end;
-    }
-    .eq-bar {
-      width: 6px;
-      background: var(--grad);
-      border-radius: 3px 3px 0 0;
-      animation: eq var(--d, .8s) ease-in-out infinite alternate;
-    }
-
-    /* ── WAVEFORM CANVAS ──────────────────────── */
-    #waveCanvas {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      width: 100%; height: 120px;
-      opacity: .4;
-    }
-
-    /* ── STATS BAR ─────────────────────────────── */
-    #stats {
-      background: var(--dark2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 28px 0;
-      position: relative; z-index: 2;
-    }
-    .stat-item {
-      text-align: center;
-      padding: 10px 0;
-      border-right: 1px solid var(--border);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 42px;
-      line-height: 1;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .stat-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* ── SECTIONS COMMON ───────────────────────── */
-    section { position: relative; z-index: 2; }
-    .section-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(36px, 5vw, 64px);
-      line-height: 1;
-      letter-spacing: 2px;
-    }
-    .section-sub { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 560px; margin-top: 12px; }
-
-    /* ── WHAT IS MMPM ──────────────────────────── */
-    #about-course { padding: 100px 0; }
-    .course-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .3s, box-shadow .3s;
-    }
-    .course-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
-    .course-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: var(--grad);
-    }
-    .course-icon {
-      width: 56px; height: 56px;
-      border-radius: 12px;
-      background: rgba(255,45,155,.1);
-      border: 1px solid rgba(255,45,155,.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; color: var(--pink);
-      margin-bottom: 20px;
-    }
-    .course-card h4 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; margin-bottom: 10px; }
-    .course-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
-
-    /* ── ABOUT US ──────────────────────────────── */
-    #about { padding: 100px 0; background: var(--dark2); }
-    .about-visual {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .about-img-placeholder {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #1a0a2e, #0a1a2e);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-img-placeholder::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 40% 40%, rgba(139,47,201,.3), transparent 60%),
-                  radial-gradient(circle at 70% 70%, rgba(0,212,255,.2), transparent 60%);
-    }
-    .about-icon-big { font-size: 80px; color: rgba(255,255,255,.08); }
-    .about-accent {
-      position: absolute;
-      bottom: -1px; left: -1px; right: -1px;
-      height: 40%;
-      background: linear-gradient(transparent, var(--dark2));
-    }
-    .value-chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 8px 18px;
-      font-size: 13px;
-      margin: 5px 4px;
-      letter-spacing: 1px;
-      transition: border-color .2s;
-    }
-    .value-chip:hover { border-color: var(--pink); }
-    .value-chip i { color: var(--pink); font-size: 12px; }
-
-    /* ── WHAT YOU'LL LEARN ─────────────────────── */
-    #learn { padding: 100px 0; }
-    .learn-item {
-      display: flex; gap: 20px; align-items: flex-start;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 16px;
-      background: var(--card);
-      transition: all .3s;
-      cursor: default;
-    }
-    .learn-item:hover { border-color: rgba(255,45,155,.3); transform: translateX(6px); }
-    .learn-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 36px;
-      color: rgba(255,45,155,.25);
-      line-height: 1;
-      min-width: 42px;
-    }
-    .learn-item h5 { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 4px; }
-    .learn-item p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0; }
-
-    /* ── COURSE STRUCTURE ──────────────────────── */
-    #structure { padding: 100px 0; background: var(--dark2); }
-    .timeline {
-      position: relative;
-      padding-left: 30px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute; top: 0; left: 8px; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--pink), var(--cyan), transparent);
-    }
-    .timeline-item {
-      position: relative;
-      padding: 0 0 40px 30px;
-    }
-    .timeline-dot {
-      position: absolute; left: -26px; top: 4px;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: var(--grad);
-      border: 3px solid var(--dark2);
-      box-shadow: 0 0 16px rgba(255,45,155,.4);
-    }
-    .timeline-week {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--cyan);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .timeline-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 6px; }
-    .timeline-desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
-
-    /* ── INSTRUCTOR ────────────────────────────── */
-    #instructor { padding: 100px 0; }
-    .instructor-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-    }
-    .instructor-card::after {
-      content: '';
-      position: absolute; top: 0; right: 0;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(139,47,201,.15), transparent 70%);
-      pointer-events: none;
-    }
-    .instructor-avatar {
-      width: 140px; height: 140px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #2a0a3e, #0a1a3e);
-      border: 3px solid;
-      border-image: var(--grad) 1;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 50px;
-      color: var(--muted);
-      position: relative;
-      overflow: hidden;
-    }
-    .instructor-avatar::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255,45,155,.2), transparent);
-    }
-    .badge-stat {
-      background: rgba(255,45,155,.1);
-      border: 1px solid rgba(255,45,155,.2);
-      border-radius: 6px;
-      padding: 14px 20px;
-      text-align: center;
-    }
-    .badge-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--pink); line-height: 1; }
-    .badge-stat-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
-    .skill-bar-wrap { margin-bottom: 16px; }
-    .skill-bar-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; letter-spacing: 1px; }
-    .skill-bar { height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
-    .skill-fill { height: 100%; border-radius: 4px; background: var(--grad); width: 0; transition: width 1.5s ease; }
-
-    /* ── GALLERY ───────────────────────────────── */
-    #gallery { padding: 100px 0; background: var(--dark2); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 16px;
-    }
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-    }
-    .gallery-item:first-child { grid-row: span 2; }
-    .gallery-placeholder {
-      width: 100%; height: 100%;
-      min-height: 200px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 10px;
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 1px;
-      transition: all .3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .gallery-placeholder::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,45,155,.08), transparent 60%);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .gallery-item:hover .gallery-placeholder::before { opacity: 1; }
-    .gallery-item:hover .gallery-placeholder { border-color: rgba(255,45,155,.3); }
-    .gallery-placeholder i { font-size: 32px; color: rgba(255,45,155,.3); }
-    .gallery-item:first-child .gallery-placeholder { min-height: 420px; }
-
-    /* ── TESTIMONIALS ──────────────────────────── */
-    #testimonials { padding: 100px 0; }
-    .testimonial-track { display: flex; gap: 20px; animation: slide 30s linear infinite; width: max-content; }
-    .testimonials-outer { overflow: hidden; position: relative; }
-    .testimonials-outer::before, .testimonials-outer::after {
-      content: '';
-      position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
-      pointer-events: none;
-    }
-    .testimonials-outer::before { left: 0; background: linear-gradient(to right, var(--dark), transparent); }
-    .testimonials-outer::after { right: 0; background: linear-gradient(to left, var(--dark), transparent); }
-    .tcard {
-      width: 320px;
-      flex-shrink: 0;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      transition: border-color .3s;
-    }
-    .tcard:hover { border-color: rgba(255,45,155,.3); }
-    .tcard-stars { color: #ffd43b; font-size: 14px; margin-bottom: 12px; }
-    .tcard-text { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-    .tcard-author { display: flex; gap: 12px; align-items: center; }
-    .tcard-avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: var(--grad2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif; font-size: 18px;
-    }
-    .tcard-name { font-weight: 700; font-size: 15px; }
-    .tcard-role { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
-
-    /* ── FAQ ───────────────────────────────────── */
-    #faq { padding: 100px 0; background: var(--dark2); }
-    .faq-item {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      transition: border-color .3s;
-    }
-    .faq-item.open { border-color: rgba(255,45,155,.3); }
-    .faq-q {
-      padding: 20px 24px;
-      display: flex; justify-content: space-between; align-items: center;
-      cursor: pointer;
-      font-weight: 600; font-size: 16px;
-      letter-spacing: .5px;
-      transition: color .3s;
-    }
-    .faq-item.open .faq-q { color: var(--pink); }
-    .faq-icon { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all .3s; flex-shrink: 0; }
-    .faq-item.open .faq-icon { background: var(--pink); border-color: var(--pink); transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      padding: 0 24px;
-      color: var(--muted);
-      font-size: 15px; line-height: 1.7;
-      transition: max-height .4s ease, padding .3s;
-    }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
-
-    /* ── URGENCY ───────────────────────────────── */
-    #urgency { padding: 80px 0; position: relative; overflow: hidden; }
-    .urgency-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(139,47,201,.12), rgba(255,45,155,.12));
-      border-top: 1px solid rgba(255,45,155,.15);
-      border-bottom: 1px solid rgba(255,45,155,.15);
-    }
-    .urgency-bg::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, rgba(255,45,155,.08), transparent 70%);
-    }
-    .countdown { display: flex; gap: 16px; }
-    .cd-block {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 20px;
-      text-align: center;
-      min-width: 80px;
-    }
-    .cd-num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; line-height: 1; color: var(--pink); }
-    .cd-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
-    .seats-indicator { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 20px; }
-    .seat { width: 14px; height: 14px; border-radius: 2px; }
-    .seat.taken { background: rgba(255,45,155,.4); }
-    .seat.available { background: var(--pink); }
-    .seat.unavailable { background: var(--border); }
-
-    /* ── ENROLL FORM ───────────────────────────── */
-    #enroll { padding: 100px 0; }
-    .form-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 50px;
-      position: relative;
-      overflow: hidden;
-    }
-    .form-card::before {
-      content: '';
-      position: absolute; top: -50%; right: -20%;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(139,47,201,.12), transparent 70%);
-      pointer-events: none;
-    }
-    .form-input {
-      background: var(--dark3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      padding: 14px 18px;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 16px;
-      width: 100%;
-      transition: border-color .3s;
-      outline: none;
-    }
-    .form-input:focus { border-color: rgba(255,45,155,.5); box-shadow: 0 0 0 3px rgba(255,45,155,.08); }
-    .form-input::placeholder { color: var(--muted); }
-    .form-label { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
-    select.form-input option { background: var(--dark3); }
-
-    /* ── FOOTER ────────────────────────────────── */
-    footer {
-      background: var(--dark2);
-      border-top: 1px solid var(--border);
-      padding: 60px 0 30px;
-    }
-    .footer-logo img { height: 44px; }
-    .footer-desc { color: var(--muted); font-size: 14px; line-height: 1.7; max-width: 300px; margin-top: 16px; }
-    .footer-title { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--pink); margin-bottom: 20px; }
-    .footer-link { display: block; color: var(--muted); font-size: 14px; text-decoration: none; padding: 5px 0; transition: color .2s; letter-spacing: .5px; }
-    .footer-link:hover { color: var(--pink); }
-    .social-btn {
-      width: 40px; height: 40px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: inline-flex; align-items: center; justify-content: center;
-      color: var(--muted); font-size: 15px;
-      text-decoration: none;
-      transition: all .2s; margin-right: 8px;
-    }
-    .social-btn:hover { border-color: var(--pink); color: var(--pink); background: rgba(255,45,155,.08); }
-    .footer-bottom { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .footer-copy { color: var(--muted); font-size: 13px; letter-spacing: .5px; }
-
-    /* ── FLOATING MUSIC PLAYER ─────────────────── */
-    #floatPlayer {
-      position: fixed; bottom: 24px; right: 24px; z-index: 500;
-      background: var(--card);
-      border: 1px solid rgba(255,45,155,.3);
-      border-radius: 50px;
-      padding: 10px 20px 10px 10px;
-      display: flex; align-items: center; gap: 14px;
-      box-shadow: 0 8px 40px rgba(0,0,0,.5);
-      backdrop-filter: blur(20px);
-      cursor: pointer;
-      transition: all .3s;
-    }
-    #floatPlayer:hover { box-shadow: 0 8px 50px rgba(255,45,155,.3); }
-    .fp-disc {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: var(--grad);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      animation: spin 4s linear infinite paused;
-    }
-    #floatPlayer.playing .fp-disc { animation-play-state: running; }
-    .fp-info { line-height: 1; }
-    .fp-title { font-size: 13px; font-weight: 700; letter-spacing: .5px; }
-    .fp-sub { font-size: 11px; color: var(--muted); margin-top: 3px; letter-spacing: 1px; }
-    .fp-btn { background: none; border: none; color: var(--pink); font-size: 18px; cursor: pointer; padding: 0; }
-
-    /* ── ANIMATIONS ────────────────────────────── */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes counter-spin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(-360deg); } }
-    @keyframes ripple { 0% { opacity: .6; transform: scale(.8); } 100% { opacity: 0; transform: scale(1); } }
-    @keyframes eq { from { height: var(--h1, 8px); } to { height: var(--h2, 40px); } }
-    @keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.4); } }
-
-    /* ── REVEAL ANIMATION ──────────────────────── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── PARTICLES ─────────────────────────────── */
-    #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-
-    /* ── RESPONSIVE ────────────────────────────── */
-    @media (max-width: 991px) {
-      .hero-visual { height: 350px; }
-      .vinyl-wrap { width: 260px; height: 260px; }
-      .hr1 { width: 300px; height: 300px; }
-      .hr2 { width: 350px; height: 350px; }
-      .hr3 { width: 400px; height: 400px; }
-      .gallery-grid { grid-template-columns: repeat(2,1fr); }
-      .gallery-item:first-child { grid-row: span 1; }
-      .gallery-item:first-child .gallery-placeholder { min-height: 200px; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-item:last-child { border-bottom: none; }
-    }
-    @media (max-width: 767px) {
-      .form-card { padding: 30px 20px; }
-      .countdown { gap: 10px; }
-      .cd-block { min-width: 65px; padding: 12px 14px; }
-      .cd-num { font-size: 34px; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      #floatPlayer { bottom: 16px; right: 16px; padding: 8px 16px 8px 8px; }
-      .cursor, .cursor-ring { display: none; }
-    }
-  </style>
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- Home styles -->
+  <link rel="stylesheet" href="css/home.css"/>
 </head>
 <body>
 
 <!-- Custom cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
-<!-- Particles canvas -->
-<canvas id="particles"></canvas>
+<!-- Global particle canvas -->
+<canvas id="av-particles"></canvas>
 
-<!-- ══════════════════════════════════════════════
+<!-- Mobile nav overlay -->
+<div class="nav-overlay"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
      NAVBAR
-══════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg" id="navbar">
+═══════════════════════════════════════════════════════════════ -->
+<nav id="av-nav">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      <!-- Logo SVG fallback (white on dark) -->
-      <span style="font-family:'Bebas Neue',sans-serif;font-size:28px;background:linear-gradient(135deg,#ff2d9b,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;">AVOTUNE <span style="font-size:14px;letter-spacing:4px;font-family:'Space Mono',monospace;">STUDIO</span></span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="#about-course">Course</a></li>
-        <li class="nav-item"><a class="nav-link" href="#learn">Curriculum</a></li>
-        <li class="nav-item"><a class="nav-link" href="#instructor">Instructor</a></li>
-        <li class="nav-item"><a class="nav-link" href="#testimonials">Stories</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-        <li class="nav-item ms-2"><a class="nav-link nav-cta" href="#enroll">Enroll Now</a></li>
-      </ul>
+    <div class="d-flex align-items-center justify-content-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo text-decoration-none">
+        <img src="assets/logo-white.png" alt="Avotune Studio"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span style="display:none;">
+          <span class="nav-logo-text">Avotune</span>
+          <span class="nav-logo-sub">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="nav-links-wrap d-flex align-items-center gap-3">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#enroll" class="btn-av btn-primary ms-2">Enroll Now</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      HERO
-══════════════════════════════════════════════ -->
+═══════════════════════════════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <canvas id="waveCanvas"></canvas>
 
-  <div class="container position-relative" style="z-index:2;">
+  <!-- Background image + gradients -->
+  <div class="hero-bg-wrap">
+    <img class="hero-bg-img"
+         src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1800&q=80"
+         alt="Studio background"/>
+    <div class="hero-gradient"></div>
+    <div class="hero-grid-overlay"></div>
+  </div>
+
+  <!-- Hero waveform -->
+  <canvas id="hero-wave"></canvas>
+
+  <div class="container hero-content">
     <div class="row align-items-center g-5">
+
+      <!-- LEFT TEXT -->
       <div class="col-lg-6">
-        <div class="hero-tag">🎵 New Batch Starting June 2025</div>
-        <h1>TURN YOUR<br><span class="grad-text">PASSION</span><br>INTO A<br>PROFESSION</h1>
-        <p class="hero-sub">Master Music Production, Mixing & Mastering at Avotune Studio — where beats become careers. Learn from industry pros in a real studio environment.</p>
-        <div class="hero-btns">
-          <button class="btn-primary-glow" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">
-            <i class="fas fa-graduation-cap me-2"></i>Enroll Now
-          </button>
-          <button class="btn-outline-glow" onclick="document.getElementById('about-course').scrollIntoView({behavior:'smooth'})">
-            Explore Course <i class="fas fa-arrow-right ms-2"></i>
-          </button>
+        <div class="hero-pretag">
+          <span class="live-dot"></span>
+          New Batch · June 2025
         </div>
-        <div class="offer-badge">
-          <div class="pulse-dot"></div>
-          <span><strong>₹2,500 OFF</strong> Early Bird Discount — Ends in 48 hours</span>
+
+        <h1 class="hero-h1">
+          <span class="line-grad">Turn Your</span>
+          Passion
+          <span class="line-outline">Into A</span>
+          <span class="line-grad">Profession</span>
+        </h1>
+
+        <p class="hero-sub">
+          Master Music Production, Mixing &amp; Mastering at Avotune Studio — where beats become careers. Real gear. Real studio. Real results.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#enroll"        class="btn-av btn-primary"><i class="fas fa-graduation-cap"></i> Enroll Now</a>
+          <a href="#about-course"  class="btn-av btn-outline"><i class="fas fa-play"></i> Explore Course</a>
+        </div>
+
+        <div class="hero-offer">
+          <i class="fas fa-tag" style="color:var(--cyan)"></i>
+          <span><strong>₹2,500 OFF</strong> Early-bird discount — ends in 48 hours</span>
         </div>
       </div>
+
+      <!-- RIGHT VISUAL -->
       <div class="col-lg-6">
-        <div class="hero-visual">
-          <div class="hero-ring hr1"></div>
-          <div class="hero-ring hr2"></div>
-          <div class="hero-ring hr3"></div>
-          <div class="vinyl-wrap">
-            <div class="vinyl">
-              <div class="vinyl-grooves"></div>
-            </div>
-            <div class="vinyl-center">
-              <i class="fas fa-music"></i>
+        <div class="hero-visual-wrap">
+
+          <!-- Main card -->
+          <div class="hero-img-card">
+            <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&q=80"
+                 alt="Music Producer in Studio"/>
+            <div class="hero-img-overlay"></div>
+            <div class="hero-img-badge">
+              <div class="hib-icon"><i class="fas fa-music"></i></div>
+              <div>
+                <div class="hib-title">Now Accepting Applications</div>
+                <div class="hib-sub">Batch 12 · June 2025</div>
+              </div>
             </div>
           </div>
-          <div class="eq-bars">
-            <div class="eq-bar" style="--d:.6s;--h1:10px;--h2:48px;"></div>
-            <div class="eq-bar" style="--d:.8s;--h1:24px;--h2:36px;"></div>
-            <div class="eq-bar" style="--d:.5s;--h1:6px;--h2:56px;"></div>
-            <div class="eq-bar" style="--d:.9s;--h1:18px;--h2:40px;"></div>
-            <div class="eq-bar" style="--d:.7s;--h1:30px;--h2:20px;"></div>
-            <div class="eq-bar" style="--d:.55s;--h1:12px;--h2:52px;"></div>
-            <div class="eq-bar" style="--d:.85s;--h1:20px;--h2:32px;"></div>
+
+          <!-- Floating stat cards -->
+          <div class="hero-float-card hfc-1">
+            <div class="hfc-label">Students</div>
+            <div class="hfc-val pink">500+</div>
+          </div>
+          <div class="hero-float-card hfc-2">
+            <div class="hfc-label">Placed</div>
+            <div class="hfc-val cyan">80%</div>
+          </div>
+          <div class="hero-float-card hfc-3">
+            <div class="hfc-label">Duration</div>
+            <div class="hfc-val teal">6 Mo.</div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      STATS BAR
-══════════════════════════════════════════════ -->
-<div id="stats">
+═══════════════════════════════════════════════════════════════ -->
+<div class="stats-bar">
   <div class="container">
     <div class="row">
       <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <div class="stat-num">6</div>
-          <div class="stat-label">Months Duration</div>
+        <div class="stat-cell">
+          <div class="stat-number" data-count="6" data-suffix="+">6+</div>
+          <div class="stat-label">Months Program</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <div class="stat-num">120+</div>
+        <div class="stat-cell">
+          <div class="stat-number" data-count="120" data-suffix="+">120+</div>
           <div class="stat-label">Live Sessions</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <div class="stat-num">8+</div>
-          <div class="stat-label">Pro Tools Covered</div>
+        <div class="stat-cell">
+          <div class="stat-number" data-count="8" data-suffix="+">8+</div>
+          <div class="stat-label">Pro Tools</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="stat-item">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Alumni Worldwide</div>
+        <div class="stat-cell">
+          <div class="stat-number" data-count="500" data-suffix="+">500+</div>
+          <div class="stat-label">Alumni</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     WHAT IS MMPM
-══════════════════════════════════════════════ -->
-<section id="about-course">
+<!-- ═══════════════════════════════════════════════════════════════
+     WHAT IS MMPM?
+═══════════════════════════════════════════════════════════════ -->
+<section id="about-course" class="av-section">
   <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">The Program</div>
-      <h2 class="section-title">What Is <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">MMPM?</span></h2>
-      <p class="section-sub mx-auto text-center">Master Music Production & Mixing — India's most hands-on music production course designed for aspiring producers, beatmakers, and sound engineers.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="course-card h-100">
-          <div class="course-icon"><i class="fas fa-headphones"></i></div>
-          <h4>For Beginners</h4>
-          <p>No prior experience needed. Start from scratch and build a solid production foundation step by step.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="course-card h-100">
-          <div class="course-icon" style="background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.2);">
-            <i class="fas fa-sliders" style="color:var(--cyan);"></i>
-          </div>
-          <h4>Real Studio</h4>
-          <p>Train inside an actual professional studio — not just theory. Real gear, real monitors, real workflows.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="course-card h-100">
-          <div class="course-icon" style="background:rgba(139,47,201,.1);border-color:rgba(139,47,201,.2);">
-            <i class="fas fa-certificate" style="color:var(--purple);"></i>
-          </div>
-          <h4>Certification</h4>
-          <p>Earn an industry-recognised certificate upon completion that opens doors to studios and labels.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="course-card h-100">
-          <div class="course-icon"><i class="fas fa-briefcase"></i></div>
-          <h4>Placement Help</h4>
-          <p>Access our industry network for internships, freelance projects, and full-time studio placements.</p>
-        </div>
+
+    <!-- Heading -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7 sr">
+        <div class="section-eyebrow mx-auto justify-content-center">The Program</div>
+        <h2 class="section-heading">What Is <span class="grad">MMPM?</span></h2>
+        <p class="section-body mx-auto text-center mt-3">
+          Master Music Production &amp; Mixing — India's most hands-on music production course, designed for aspiring producers, beatmakers, and sound engineers.
+        </p>
       </div>
     </div>
+
+    <!-- Feature image row -->
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6 sr sr-left">
+        <div class="av-img-wrap img-glow-border" style="aspect-ratio:16/9;">
+          <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=900&q=80"
+               alt="Music Production Setup"/>
+          <div class="av-img-overlay"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <div class="eq-viz">
+              <div class="eq-bar" style="--h1:8px;--h2:38px;--d:.6s"></div>
+              <div class="eq-bar" style="--h1:20px;--h2:28px;--d:.8s"></div>
+              <div class="eq-bar" style="--h1:5px;--h2:48px;--d:.5s"></div>
+              <div class="eq-bar" style="--h1:14px;--h2:32px;--d:.9s"></div>
+              <div class="eq-bar" style="--h1:22px;--h2:16px;--d:.7s"></div>
+              <div class="eq-bar" style="--h1:10px;--h2:44px;--d:.55s"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 sr sr-right">
+        <div class="section-eyebrow">Who It's For</div>
+        <h3 class="section-heading" style="font-size:clamp(28px,3vw,46px);">Built For <span class="grad">Every</span> Music Dreamer</h3>
+        <p class="section-body mt-3 mb-4">No prior experience needed. Whether you're a bedroom producer or a performer wanting to understand your sound — MMPM gives you the full toolkit.</p>
+        <div>
+          <span class="chip"><i class="fas fa-circle-check"></i> Absolute Beginners</span>
+          <span class="chip"><i class="fas fa-circle-check"></i> Self-Taught Producers</span>
+          <span class="chip"><i class="fas fa-circle-check"></i> Performing Artists</span>
+          <span class="chip"><i class="fas fa-circle-check"></i> Sound Engineers</span>
+          <span class="chip"><i class="fas fa-circle-check"></i> Content Creators</span>
+          <span class="chip"><i class="fas fa-circle-check"></i> Film Composers</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 cards -->
+    <div class="course-cards-grid">
+      <div class="av-card sr sr-d1">
+        <div class="av-card-icon icon-pink"><i class="fas fa-headphones"></i></div>
+        <h4>Zero to Pro</h4>
+        <p>Start from absolute scratch and graduate as a fully capable music producer with a polished portfolio.</p>
+      </div>
+      <div class="av-card sr sr-d2">
+        <div class="av-card-icon icon-cyan"><i class="fas fa-sliders"></i></div>
+        <h4>Real Studio</h4>
+        <p>Train inside a professional studio — real gear, real monitors, real acoustic treatment. Not just theory.</p>
+      </div>
+      <div class="av-card sr sr-d3">
+        <div class="av-card-icon icon-purple"><i class="fas fa-certificate"></i></div>
+        <h4>Certification</h4>
+        <p>Earn an industry-recognised certificate that opens doors to studios, labels, and creative agencies.</p>
+      </div>
+      <div class="av-card sr sr-d4">
+        <div class="av-card-icon icon-teal"><i class="fas fa-briefcase"></i></div>
+        <h4>Placement Help</h4>
+        <p>Access our network for internships, freelance projects, and full-time studio placements post-course.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      ABOUT US
-══════════════════════════════════════════════ -->
-<section id="about">
+═══════════════════════════════════════════════════════════════ -->
+<section id="about" class="av-section-alt">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-lg-5 reveal">
-        <div class="about-visual">
-          <div class="about-img-placeholder">
-            <i class="fas fa-compact-disc about-icon-big" style="font-size:100px;"></i>
-            <div class="about-accent"></div>
+
+      <!-- Images -->
+      <div class="col-lg-5 sr sr-left">
+        <div class="about-img-stack">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&q=80"
+                 alt="Avotune Studio Room"/>
+          </div>
+          <div class="about-img-secondary">
+            <img src="https://images.unsplash.com/photo-1508854710579-5cecc3a416f5?w=500&q=80"
+                 alt="Music Mixing Board"/>
+          </div>
+          <div class="about-accent-badge">
+            <div class="aab-num">10+</div>
+            <div class="aab-text">Years<br>Experience</div>
           </div>
         </div>
       </div>
-      <div class="col-lg-7 reveal">
-        <div class="section-tag">Our Story</div>
-        <h2 class="section-title">Built By <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Artists,</span><br>For Artists</h2>
-        <p class="section-sub mb-4">Avotune Studio was born from a single belief — that talent should never be held back by access. We built a space where passion meets craft, and where dreams get a frequency.</p>
-        <p style="color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:28px;">We're not a typical coaching institute. We're a creative hub where real producers teach real skills using real professional equipment. Every session is hands-on. Every lesson builds toward your career.</p>
+
+      <!-- Text -->
+      <div class="col-lg-7 sr sr-right" style="padding-bottom:40px;">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-heading">Built By <span class="grad">Artists,</span><br>For Artists</h2>
+        <div class="divider mt-3"></div>
+        <p class="section-body mt-3 mb-4">
+          Avotune Studio was born from one belief — talent should never be held back by access. We built a space where passion meets craft, and where dreams get a frequency.
+        </p>
+        <p style="font-family:var(--font-accent);color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:28px;">
+          We're not a typical coaching institute. We're a creative hub where real producers teach real skills using professional-grade equipment. Every session is hands-on. Every lesson moves your career forward.
+        </p>
         <div>
-          <span class="value-chip"><i class="fas fa-check"></i> Industry-Standard DAWs</span>
-          <span class="value-chip"><i class="fas fa-check"></i> Analogue & Digital Gear</span>
-          <span class="value-chip"><i class="fas fa-check"></i> Live Sound Engineering</span>
-          <span class="value-chip"><i class="fas fa-check"></i> Music Business</span>
-          <span class="value-chip"><i class="fas fa-check"></i> Sample Design</span>
-          <span class="value-chip"><i class="fas fa-check"></i> Artist Branding</span>
+          <span class="chip"><i class="fas fa-check"></i> Industry-Standard DAWs</span>
+          <span class="chip"><i class="fas fa-check"></i> Analogue &amp; Digital Gear</span>
+          <span class="chip"><i class="fas fa-check"></i> Live Sound Engineering</span>
+          <span class="chip"><i class="fas fa-check"></i> Music Business</span>
+          <span class="chip"><i class="fas fa-check"></i> Sample Design</span>
+          <span class="chip"><i class="fas fa-check"></i> Artist Branding</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      WHAT YOU'LL LEARN
-══════════════════════════════════════════════ -->
-<section id="learn">
+═══════════════════════════════════════════════════════════════ -->
+<section id="learn" class="av-section">
   <div class="container">
     <div class="row g-5 align-items-start">
-      <div class="col-lg-4 reveal">
-        <div class="section-tag">Curriculum</div>
-        <h2 class="section-title">What You'll <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Learn</span></h2>
-        <p class="section-sub mt-3">A comprehensive, skills-first curriculum covering everything from sound theory to professional release-ready mixes.</p>
-        <div class="mt-4 p-4" style="background:var(--card);border:1px solid var(--border);border-radius:12px;">
+
+      <!-- Left sticky info -->
+      <div class="col-lg-4 sr sr-left">
+        <div class="section-eyebrow">Curriculum</div>
+        <h2 class="section-heading">What You'll <span class="grad">Learn</span></h2>
+        <p class="section-body mt-3 mb-4">A skills-first curriculum covering everything from sound theory to professional release-ready mixes.</p>
+
+        <!-- Side image -->
+        <div class="av-img-wrap img-glow-border" style="border-radius:14px;margin-bottom:24px;">
+          <img src="https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?w=600&q=80"
+               alt="Learning in Studio" style="aspect-ratio:4/3;object-fit:cover;"/>
+          <div class="av-img-overlay"></div>
+        </div>
+
+        <div class="av-card" style="padding:20px 24px;">
           <div class="d-flex align-items-center gap-3 mb-3">
-            <i class="fas fa-play-circle" style="color:var(--pink);font-size:28px;"></i>
+            <i class="fas fa-play-circle" style="color:var(--pink);font-size:26px;"></i>
             <div>
-              <div style="font-weight:700;">60+ Video Lessons</div>
-              <div style="color:var(--muted);font-size:13px;">Self-paced learning portal</div>
+              <div style="font-family:var(--font-accent);font-weight:700;">60+ Video Lessons</div>
+              <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;color:var(--muted);">Self-paced portal</div>
             </div>
           </div>
           <div class="d-flex align-items-center gap-3">
-            <i class="fas fa-microphone-alt" style="color:var(--cyan);font-size:28px;"></i>
+            <i class="fas fa-microphone-alt" style="color:var(--cyan);font-size:26px;"></i>
             <div>
-              <div style="font-weight:700;">Studio Practice Sessions</div>
-              <div style="color:var(--muted);font-size:13px;">Hands-on every week</div>
+              <div style="font-family:var(--font-accent);font-weight:700;">Studio Practice Sessions</div>
+              <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;color:var(--muted);">Hands-on every week</div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Right learn items -->
       <div class="col-lg-8">
-        <div class="learn-item reveal">
+        <div class="learn-row sr sr-d1">
           <div class="learn-num">01</div>
           <div>
             <h5>Music Theory & Sound Design Fundamentals</h5>
-            <p>Scales, chord progressions, rhythm theory, and how to design signature sounds that define your style.</p>
+            <p>Scales, chord progressions, rhythm theory, and designing signature sounds that define your style.</p>
           </div>
         </div>
-        <div class="learn-item reveal">
+        <div class="learn-row sr sr-d2">
           <div class="learn-num">02</div>
           <div>
             <h5>DAW Mastery — Ableton, FL Studio & Logic Pro</h5>
-            <p>Deep workflow training across all major DAWs so you can produce efficiently in any studio environment.</p>
+            <p>Deep workflow training across all major DAWs so you can produce efficiently in any environment.</p>
           </div>
         </div>
-        <div class="learn-item reveal">
+        <div class="learn-row sr sr-d3">
           <div class="learn-num">03</div>
           <div>
             <h5>Mixing Techniques & Frequency Management</h5>
-            <p>EQ, compression, reverb, and spatial audio principles that separate amateur from professional mixes.</p>
+            <p>EQ, compression, reverb, spatial audio — the principles that separate amateur from professional mixes.</p>
           </div>
         </div>
-        <div class="learn-item reveal">
+        <div class="learn-row sr sr-d4">
           <div class="learn-num">04</div>
           <div>
             <h5>Mastering for Streaming Platforms</h5>
-            <p>Loudness standards, LUFS targets, stem mastering, and getting your tracks release-ready for Spotify, Apple Music & more.</p>
+            <p>LUFS targets, stem mastering, and getting tracks release-ready for Spotify, Apple Music &amp; more.</p>
           </div>
         </div>
-        <div class="learn-item reveal">
+        <div class="learn-row sr">
           <div class="learn-num">05</div>
           <div>
             <h5>Artist Branding & Music Business</h5>
-            <p>Build your brand, distribute music, pitch to labels, and understand royalties, licensing & sync opportunities.</p>
+            <p>Distribute music, pitch to labels, understand royalties, licensing, and sync opportunities.</p>
           </div>
         </div>
       </div>
@@ -1033,48 +392,66 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      COURSE STRUCTURE
-══════════════════════════════════════════════ -->
-<section id="structure">
+═══════════════════════════════════════════════════════════════ -->
+<section id="structure" class="av-section-alt">
   <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">Journey Map</div>
-      <h2 class="section-title">Course <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Structure</span></h2>
-      <p class="section-sub mx-auto">A clearly mapped 6-month journey from complete beginner to professional music producer.</p>
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-6 sr">
+        <div class="section-eyebrow mx-auto justify-content-center">Journey Map</div>
+        <h2 class="section-heading">Course <span class="grad">Structure</span></h2>
+        <p class="section-body mx-auto text-center mt-3">A clear 6-month map from complete beginner to professional music producer.</p>
+      </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-week">Month 1–2</div>
-            <div class="timeline-title">Foundations & Sound Design</div>
-            <p class="timeline-desc">Music theory basics, DAW setup, synth programming, drum design, and creating your first complete beat from scratch.</p>
+
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5 sr sr-right" style="order:2;">
+        <div class="av-img-wrap img-glow-border" style="border-radius:16px;">
+          <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=700&q=80"
+               alt="Studio Timeline" style="aspect-ratio:3/4;object-fit:cover;"/>
+          <div class="av-img-overlay"></div>
+          <div style="position:absolute;bottom:24px;left:24px;right:24px;">
+            <div class="av-card" style="padding:18px 20px;background:rgba(14,14,26,.9);">
+              <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--pink);margin-bottom:8px;">NEXT BATCH</div>
+              <div style="font-family:var(--font-display);font-size:26px;font-weight:700;">June 15, 2025</div>
+              <div style="font-family:var(--font-accent);color:var(--muted);font-size:13px;margin-top:4px;">Only 7 seats remaining</div>
+            </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-week">Month 3</div>
-            <div class="timeline-title">Arrangement & Composition</div>
-            <p class="timeline-desc">Song structure, arrangement techniques, building tension and release, genre-specific workflows, and working with samples.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-7 sr sr-left" style="order:1;">
+        <div class="av-timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-week">Month 1–2</div>
+            <div class="tl-title">Foundations & Sound Design</div>
+            <p class="tl-desc">Music theory, DAW setup, synth programming, drum design, and creating your first complete beat from scratch.</p>
           </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-week">Month 4</div>
-            <div class="timeline-title">Mixing Deep Dive</div>
-            <p class="timeline-desc">Advanced EQ, multi-band compression, bus processing, parallel chains, and reference mixing on studio monitors.</p>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-week">Month 3</div>
+            <div class="tl-title">Arrangement & Composition</div>
+            <p class="tl-desc">Song structure, tension and release, genre-specific workflows, and working with samples and loops.</p>
           </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-week">Month 5</div>
-            <div class="timeline-title">Mastering & Delivery</div>
-            <p class="timeline-desc">Stereo mastering, stem mastering, LUFS targets for DSPs, vinyl prep, and building your official EP portfolio.</p>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-week">Month 4</div>
+            <div class="tl-title">Mixing Deep Dive</div>
+            <p class="tl-desc">Advanced EQ, multi-band compression, bus processing, parallel chains, and reference mixing on studio monitors.</p>
           </div>
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-week">Month 6</div>
-            <div class="timeline-title">Business, Brand & Launch</div>
-            <p class="timeline-desc">Distribution strategy, social media for artists, pitching to labels, sync licensing, and your graduation showcase.</p>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-week">Month 5</div>
+            <div class="tl-title">Mastering & Delivery</div>
+            <p class="tl-desc">Stereo mastering, stem mastering, LUFS targets for DSPs, and building your official EP portfolio.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-week">Month 6</div>
+            <div class="tl-title">Business, Brand & Launch</div>
+            <p class="tl-desc">Distribution, social for artists, pitching to labels, sync licensing, and your graduation showcase.</p>
           </div>
         </div>
       </div>
@@ -1082,54 +459,72 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      INSTRUCTOR
-══════════════════════════════════════════════ -->
-<section id="instructor">
+═══════════════════════════════════════════════════════════════ -->
+<section id="instructor" class="av-section">
   <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">Your Guide</div>
-      <h2 class="section-title">Meet The <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Instructor</span></h2>
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Your Guide</div>
+      <h2 class="section-heading">Meet The <span class="grad">Instructor</span></h2>
     </div>
-    <div class="instructor-card p-4 p-lg-5 reveal">
-      <div class="row g-5 align-items-center">
-        <div class="col-lg-4 text-center">
-          <div class="instructor-avatar mx-auto mb-4">
-            <i class="fas fa-user-circle"></i>
-          </div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;">DJ Aryan Mehta</h3>
-          <p style="color:var(--pink);font-size:13px;letter-spacing:2px;text-transform:uppercase;">Lead Producer & Head Instructor</p>
-          <div class="d-flex gap-2 justify-content-center mt-3">
-            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-btn"><i class="fab fa-spotify"></i></a>
-          </div>
+
+    <div class="instructor-wrap skill-section">
+      <div class="row g-0">
+
+        <!-- Photo -->
+        <div class="col-lg-4 sr sr-left">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+               alt="DJ Aryan Mehta" class="instructor-hero-img"/>
         </div>
-        <div class="col-lg-4">
-          <p style="color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:28px;">With over 10 years in the music industry, Aryan has produced tracks for Bollywood, international artists, and top streaming playlists. He's trained 500+ students and believes every producer deserves a real mentor, not just YouTube tutorials.</p>
+
+        <!-- Info -->
+        <div class="col-lg-8 p-4 p-lg-5 sr sr-right">
+          <div class="section-eyebrow">Lead Producer</div>
+          <h3 style="font-family:var(--font-display);font-size:44px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">DJ Aryan<br>Mehta</h3>
+          <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:3px;color:var(--pink);text-transform:uppercase;margin-bottom:20px;">Head Instructor · Music Producer · Mix Engineer</p>
+          <p style="font-family:var(--font-accent);color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:28px;">
+            With 10+ years in the music industry, Aryan has produced tracks for Bollywood, international artists, and top streaming playlists. He's trained 500+ students and believes every producer deserves a real mentor — not just YouTube tutorials.
+          </p>
+
+          <!-- Stats row -->
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3"><div class="badge-stat"><div class="badge-stat-num">10+</div><div class="badge-stat-label">Yrs Exp</div></div></div>
+            <div class="col-6 col-md-3"><div class="badge-stat"><div class="badge-stat-num">500+</div><div class="badge-stat-label">Students</div></div></div>
+            <div class="col-6 col-md-3"><div class="badge-stat"><div class="badge-stat-num">50+</div><div class="badge-stat-label">Releases</div></div></div>
+            <div class="col-6 col-md-3"><div class="badge-stat"><div class="badge-stat-num">12</div><div class="badge-stat-label">Brands</div></div></div>
+          </div>
+
+          <!-- Skill bars -->
           <div class="row g-3">
-            <div class="col-6"><div class="badge-stat"><div class="badge-stat-num">10+</div><div class="badge-stat-label">Years Exp.</div></div></div>
-            <div class="col-6"><div class="badge-stat"><div class="badge-stat-num">500+</div><div class="badge-stat-label">Students</div></div></div>
-            <div class="col-6"><div class="badge-stat"><div class="badge-stat-num">50+</div><div class="badge-stat-label">Released Tracks</div></div></div>
-            <div class="col-6"><div class="badge-stat"><div class="badge-stat-num">12</div><div class="badge-stat-label">Brand Collabs</div></div></div>
+            <div class="col-md-6">
+              <div class="skill-row">
+                <div class="skill-meta"><span>Music Production</span><span>96%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-w="96"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>Mixing & Mastering</span><span>93%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-w="93"></div></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="skill-row">
+                <div class="skill-meta"><span>Sound Design</span><span>90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-w="90"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>Live Performance</span><span>88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-w="88"></div></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="mb-4">
-            <div class="skill-bar-label"><span>Music Production</span><span>96%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="96"></div></div>
-          </div>
-          <div class="mb-4">
-            <div class="skill-bar-label"><span>Mixing & Mastering</span><span>93%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
-          </div>
-          <div class="mb-4">
-            <div class="skill-bar-label"><span>Sound Design</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-          </div>
-          <div class="mb-4">
-            <div class="skill-bar-label"><span>Live Performance</span><span>88%</span></div>
-            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+
+          <!-- Socials -->
+          <div class="social-row mt-3">
+            <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+            <a href="#" class="soc-btn"><i class="fab fa-soundcloud"></i></a>
           </div>
         </div>
       </div>
@@ -1137,223 +532,327 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      GALLERY
-══════════════════════════════════════════════ -->
-<section id="gallery">
+═══════════════════════════════════════════════════════════════ -->
+<section id="gallery" class="av-section-alt">
   <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">The Space</div>
-      <h2 class="section-title">Studio <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Glimpse</span></h2>
-      <p class="section-sub mx-auto">State-of-the-art recording rooms, professional acoustics, and the gear that shapes great music.</p>
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">The Space</div>
+      <h2 class="section-heading">Studio <span class="grad">Glimpse</span></h2>
+      <p class="section-body mx-auto text-center mt-3">State-of-the-art recording rooms, professional acoustics, and the gear that shapes great music.</p>
     </div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <i class="fas fa-microphone"></i>
-          <span>Recording Booth</span>
-        </div>
+
+    <div class="gallery-grid sr">
+      <div class="g-item g-tall">
+        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=700&q=80" alt="Recording Booth"/>
+        <div class="av-img-overlay"></div>
+        <div class="g-item-label">Recording Booth</div>
       </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <i class="fas fa-sliders"></i>
-          <span>Mixing Console</span>
-        </div>
+      <div class="g-item g-wide">
+        <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=900&q=80" alt="Mixing Console"/>
+        <div class="av-img-overlay"></div>
+        <div class="g-item-label">Mixing Console</div>
       </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <i class="fas fa-drum"></i>
-          <span>Beat Lab</span>
-        </div>
+      <div class="g-item g-half">
+        <img src="https://images.unsplash.com/photo-1563330232-57114bb0823c?w=600&q=80" alt="Beat Lab"/>
+        <div class="av-img-overlay"></div>
+        <div class="g-item-label">Beat Lab</div>
       </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <i class="fas fa-headphones"></i>
-          <span>Mastering Suite</span>
-        </div>
+      <div class="g-item g-half">
+        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&q=80" alt="Mastering Suite"/>
+        <div class="av-img-overlay"></div>
+        <div class="g-item-label">Mastering Suite</div>
       </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <i class="fas fa-compact-disc"></i>
-          <span>Student Sessions</span>
-        </div>
+      <div class="g-item g-half">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80" alt="Production Room"/>
+        <div class="av-img-overlay"></div>
+        <div class="g-item-label">Production Room</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      TESTIMONIALS
-══════════════════════════════════════════════ -->
-<section id="testimonials">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">Alumni Stories</div>
-      <h2 class="section-title">Real <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Results</span></h2>
+═══════════════════════════════════════════════════════════════ -->
+<section id="testimonials" class="av-section">
+  <div class="container mb-5">
+    <div class="text-center sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Alumni Stories</div>
+      <h2 class="section-heading">Real <span class="grad">Results</span></h2>
     </div>
   </div>
-  <div class="testimonials-outer">
-    <div class="testimonial-track" id="tTrack">
-      <!-- Set 1 -->
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"I came in not knowing what a DAW was. Six months later I got placed at a Mumbai studio. Avotune literally changed my life."</p><div class="tcard-author"><div class="tcard-avatar">R</div><div><div class="tcard-name">Rohan Sharma</div><div class="tcard-role">Studio Engineer, Mumbai</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The mixing modules alone were worth the full fee. Aryan's teaching style is incredibly clear — no fluff, just results."</p><div class="tcard-author"><div class="tcard-avatar">P</div><div><div class="tcard-name">Priya Nair</div><div class="tcard-role">Freelance Producer</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Released my first EP 2 weeks after graduating. The confidence and skills I got here are something no YouTube channel could give me."</p><div class="tcard-author"><div class="tcard-avatar">K</div><div><div class="tcard-name">Karan Bhatia</div><div class="tcard-role">Independent Artist</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"From a 9-5 job to working full-time in music. The business module showed me how to actually earn from my passion."</p><div class="tcard-author"><div class="tcard-avatar">S</div><div><div class="tcard-name">Simran Kaur</div><div class="tcard-role">Music Entrepreneur</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The studio sessions are unmatched. Working on professional monitors with real acoustic treatment changes how you hear music forever."</p><div class="tcard-author"><div class="tcard-avatar">A</div><div><div class="tcard-name">Aditya Joshi</div><div class="tcard-role">Sound Designer</div></div></div></div>
+
+  <div class="testi-outer">
+    <div class="testi-track" id="testi-track">
+      <!-- Row 1 -->
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I came in not knowing what a DAW was. Six months later I got placed at a Mumbai studio. Avotune literally changed my life."</p>
+        <div class="t-author">
+          <div class="t-avatar">R</div>
+          <div><div class="t-name">Rohan Sharma</div><div class="t-role">Studio Engineer, Mumbai</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"The mixing modules alone were worth the full fee. Aryan's teaching style is incredibly clear — no fluff, just results."</p>
+        <div class="t-author">
+          <div class="t-avatar">P</div>
+          <div><div class="t-name">Priya Nair</div><div class="t-role">Freelance Producer</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Released my first EP 2 weeks after graduating. The confidence and skills I got here are something no YouTube channel could give me."</p>
+        <div class="t-author">
+          <div class="t-avatar">K</div>
+          <div><div class="t-name">Karan Bhatia</div><div class="t-role">Independent Artist</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"From a 9-5 job to working full-time in music. The business module showed me how to actually earn from my passion."</p>
+        <div class="t-author">
+          <div class="t-avatar">S</div>
+          <div><div class="t-name">Simran Kaur</div><div class="t-role">Music Entrepreneur</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Working on professional monitors with real acoustic treatment changes how you hear music forever. Worth every rupee."</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div><div class="t-name">Aditya Joshi</div><div class="t-role">Sound Designer</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Avotune isn't just a course — it's a community. The network I built here is still helping me land projects years later."</p>
+        <div class="t-author">
+          <div class="t-avatar">M</div>
+          <div><div class="t-name">Megha Verma</div><div class="t-role">Film Composer</div></div>
+        </div>
+      </div>
       <!-- Duplicate for seamless loop -->
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"I came in not knowing what a DAW was. Six months later I got placed at a Mumbai studio. Avotune literally changed my life."</p><div class="tcard-author"><div class="tcard-avatar">R</div><div><div class="tcard-name">Rohan Sharma</div><div class="tcard-role">Studio Engineer, Mumbai</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The mixing modules alone were worth the full fee. Aryan's teaching style is incredibly clear — no fluff, just results."</p><div class="tcard-author"><div class="tcard-avatar">P</div><div><div class="tcard-name">Priya Nair</div><div class="tcard-role">Freelance Producer</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Released my first EP 2 weeks after graduating. The confidence and skills I got here are something no YouTube channel could give me."</p><div class="tcard-author"><div class="tcard-avatar">K</div><div><div class="tcard-name">Karan Bhatia</div><div class="tcard-role">Independent Artist</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"From a 9-5 job to working full-time in music. The business module showed me how to actually earn from my passion."</p><div class="tcard-author"><div class="tcard-avatar">S</div><div><div class="tcard-name">Simran Kaur</div><div class="tcard-role">Music Entrepreneur</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The studio sessions are unmatched. Working on professional monitors with real acoustic treatment changes how you hear music forever."</p><div class="tcard-author"><div class="tcard-avatar">A</div><div><div class="tcard-name">Aditya Joshi</div><div class="tcard-role">Sound Designer</div></div></div></div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I came in not knowing what a DAW was. Six months later I got placed at a Mumbai studio. Avotune literally changed my life."</p>
+        <div class="t-author"><div class="t-avatar">R</div><div><div class="t-name">Rohan Sharma</div><div class="t-role">Studio Engineer, Mumbai</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"The mixing modules alone were worth the full fee. Aryan's teaching style is incredibly clear — no fluff, just results."</p>
+        <div class="t-author"><div class="t-avatar">P</div><div><div class="t-name">Priya Nair</div><div class="t-role">Freelance Producer</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Released my first EP 2 weeks after graduating. The confidence and skills I got here are something no YouTube channel could give me."</p>
+        <div class="t-author"><div class="t-avatar">K</div><div><div class="t-name">Karan Bhatia</div><div class="t-role">Independent Artist</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"From a 9-5 job to working full-time in music. The business module showed me how to actually earn from my passion."</p>
+        <div class="t-author"><div class="t-avatar">S</div><div><div class="t-name">Simran Kaur</div><div class="t-role">Music Entrepreneur</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Working on professional monitors with real acoustic treatment changes how you hear music forever. Worth every rupee."</p>
+        <div class="t-author"><div class="t-avatar">A</div><div><div class="t-name">Aditya Joshi</div><div class="t-role">Sound Designer</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Avotune isn't just a course — it's a community. The network I built here is still helping me land projects years later."</p>
+        <div class="t-author"><div class="t-avatar">M</div><div><div class="t-name">Megha Verma</div><div class="t-role">Film Composer</div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      FAQ
-══════════════════════════════════════════════ -->
-<section id="faq">
+═══════════════════════════════════════════════════════════════ -->
+<section id="faq" class="av-section-alt">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-4 reveal">
-        <div class="section-tag">Questions</div>
-        <h2 class="section-title">Got <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAQs?</span></h2>
-        <p class="section-sub mt-3">Can't find an answer? Reach out to us on Instagram or WhatsApp — we reply within the hour.</p>
-        <a href="#enroll" class="btn-primary-glow d-inline-block mt-4" style="text-decoration:none;">Contact Us</a>
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-4 sr sr-left">
+        <div class="section-eyebrow">Questions</div>
+        <h2 class="section-heading">Got <span class="grad">FAQs?</span></h2>
+        <p class="section-body mt-3 mb-4">Can't find an answer? Message us on Instagram or WhatsApp — we reply within an hour.</p>
+        <div class="av-img-wrap img-glow-border mb-4" style="border-radius:14px;">
+          <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&q=80"
+               alt="FAQ" style="aspect-ratio:4/3;object-fit:cover;"/>
+          <div class="av-img-overlay"></div>
+        </div>
+        <a href="#enroll" class="btn-av btn-primary">Contact Us <i class="fas fa-arrow-right"></i></a>
       </div>
-      <div class="col-lg-8 reveal">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFAQ(this)">Do I need prior music knowledge to join?<span class="faq-icon"><i class="fas fa-plus"></i></span></div>
-          <div class="faq-a">Absolutely not! The MMPM course is designed for complete beginners. We start with the fundamentals of music theory and build up gradually. If you already have some experience, our instructor will ensure you're challenged at the right level.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFAQ(this)">What equipment do I need to bring?<span class="faq-icon"><i class="fas fa-plus"></i></span></div>
-          <div class="faq-a">Nothing! All studio equipment, DAW licences, plugins, and hardware are provided at Avotune Studio. For home practice, we recommend a laptop with at least 8GB RAM — we'll guide you on free DAW options to start with.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFAQ(this)">Is the course online or offline?<span class="faq-icon"><i class="fas fa-plus"></i></span></div>
-          <div class="faq-a">The core studio sessions are conducted offline at our studio in Delhi. We also provide a supplementary online learning portal with recorded lessons so you can revise anytime. A hybrid format is available for outstation students.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFAQ(this)">What is the fee structure?<span class="faq-icon"><i class="fas fa-plus"></i></span></div>
-          <div class="faq-a">The full program fee is ₹45,000 for 6 months. We offer EMI options, a ₹2,500 early bird discount, and a group discount for friends enrolling together. Fill the interest form and we'll share the complete fee breakup.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFAQ(this)">Will I get a job after the course?<span class="faq-icon"><i class="fas fa-plus"></i></span></div>
-          <div class="faq-a">We provide active placement support — connecting students with recording studios, production houses, and label opportunities in our network. Over 80% of our graduates are actively working in the music industry within 3 months of completion.</div>
+
+      <div class="col-lg-8 sr sr-right">
+        <div class="faq-wrap">
+          <div class="faq-box">
+            <div class="faq-trigger">Do I need prior music knowledge?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">Not at all! MMPM is designed for complete beginners. We start from music theory fundamentals and build up gradually. If you have experience, our instructor will ensure you're challenged at the right level.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">What equipment do I need to bring?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">Nothing! All studio equipment, DAW licences, plugins, and hardware are provided at Avotune Studio. For home practice, a laptop with 8GB+ RAM is recommended — we'll guide you on free starter options.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">Is the course online or offline?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">Core sessions are conducted offline at our Delhi studio. We also provide an online learning portal with recorded lessons for revision. A hybrid format is available for outstation students.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">What is the fee structure?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">The full program is ₹45,000 for 6 months. We offer EMI options, a ₹2,500 early bird discount, and group discounts for friends enrolling together. Fill the interest form and we'll share the complete fee breakup.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">Will I get a job after the course?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">We provide active placement support — connecting students with recording studios, production houses, and labels in our network. Over 80% of our graduates are actively working in the music industry within 3 months.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">Can I switch batches or pause the course?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">Yes! Life happens. We allow batch switches with at least 2 weeks' notice. You can also pause for up to 4 weeks in genuine circumstances. All recorded content remains accessible throughout your enrollment period.</div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     URGENCY BANNER
-══════════════════════════════════════════════ -->
-<section id="urgency">
+<!-- ═══════════════════════════════════════════════════════════════
+     URGENCY
+═══════════════════════════════════════════════════════════════ -->
+<section class="urgency-section">
   <div class="urgency-bg"></div>
   <div class="container position-relative" style="z-index:2;">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-6 reveal">
-        <div class="section-tag">⚡ Limited Seats</div>
-        <h2 class="section-title">Only <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7 Seats</span><br>Left This Batch</h2>
-        <p style="color:var(--muted);margin-top:12px;font-size:16px;">Our studio batches are kept deliberately small for personalised attention. Once it's full, next batch is 3 months away.</p>
-        <div class="seats-indicator mt-3">
-          <div class="seat taken"></div><div class="seat taken"></div><div class="seat taken"></div>
-          <div class="seat taken"></div><div class="seat taken"></div><div class="seat taken"></div>
-          <div class="seat taken"></div><div class="seat taken"></div><div class="seat taken"></div>
-          <div class="seat taken"></div><div class="seat taken"></div><div class="seat taken"></div>
-          <div class="seat taken"></div>
-          <div class="seat available"></div><div class="seat available"></div><div class="seat available"></div>
-          <div class="seat available"></div><div class="seat available"></div><div class="seat available"></div>
-          <div class="seat available"></div>
-          <div class="seat unavailable"></div><div class="seat unavailable"></div>
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 sr sr-left">
+        <div class="section-eyebrow">⚡ Limited Seats</div>
+        <h2 class="section-heading">Only <span class="grad">7 Seats</span><br>Left This Batch</h2>
+        <p style="font-family:var(--font-accent);color:var(--muted);font-size:16px;line-height:1.75;margin-top:14px;">Our studio batches are kept deliberately small for personalised attention. Once it's full, the next batch is 3 months away.</p>
+        <div class="seats-grid mt-4">
+          <div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div>
+          <div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div>
+          <div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div>
+          <div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div><div class="seat-block seat-taken"></div>
+          <div class="seat-block seat-taken"></div>
+          <div class="seat-block seat-open"></div><div class="seat-block seat-open"></div><div class="seat-block seat-open"></div>
+          <div class="seat-block seat-open"></div><div class="seat-block seat-open"></div><div class="seat-block seat-open"></div>
+          <div class="seat-block seat-open"></div>
+          <div class="seat-block seat-later"></div><div class="seat-block seat-later"></div>
         </div>
-        <p style="font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:1px;">
-          <span style="display:inline-block;width:12px;height:12px;background:rgba(255,45,155,.4);border-radius:2px;vertical-align:middle;margin-right:5px;"></span>Taken &nbsp;
-          <span style="display:inline-block;width:12px;height:12px;background:var(--pink);border-radius:2px;vertical-align:middle;margin-right:5px;"></span>Available &nbsp;
-          <span style="display:inline-block;width:12px;height:12px;background:var(--border);border-radius:2px;vertical-align:middle;margin-right:5px;"></span>Upcoming
+        <p style="font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:10px;">
+          <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:rgba(255,31,142,.45);vertical-align:middle;margin-right:5px;"></span>Taken &nbsp;
+          <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--pink);vertical-align:middle;margin-right:5px;"></span>Available &nbsp;
+          <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--border);vertical-align:middle;margin-right:5px;"></span>Upcoming
         </p>
       </div>
-      <div class="col-lg-6 reveal">
-        <p style="color:var(--muted);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">Early Bird Offer Ends In</p>
-        <div class="countdown">
-          <div class="cd-block"><div class="cd-num" id="cd-days">02</div><div class="cd-label">Days</div></div>
-          <div class="cd-block"><div class="cd-num" id="cd-hours">14</div><div class="cd-label">Hours</div></div>
-          <div class="cd-block"><div class="cd-num" id="cd-mins">37</div><div class="cd-label">Mins</div></div>
-          <div class="cd-block"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Secs</div></div>
+
+      <div class="col-lg-6 sr sr-right">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Early Bird Offer Ends In</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <div class="cd-unit"><div class="cd-num" id="cd-days">02</div><div class="cd-label">Days</div></div>
+          <div class="cd-unit"><div class="cd-num" id="cd-hours">14</div><div class="cd-label">Hours</div></div>
+          <div class="cd-unit"><div class="cd-num" id="cd-mins">37</div><div class="cd-label">Mins</div></div>
+          <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Secs</div></div>
         </div>
-        <button class="btn-primary-glow mt-4" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">
-          Claim Your Seat Now <i class="fas fa-arrow-right ms-2"></i>
-        </button>
+        <a href="#enroll" class="btn-av btn-primary mt-4 d-inline-flex">
+          Claim Your Seat <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      ENROLL FORM
-══════════════════════════════════════════════ -->
-<section id="enroll">
+═══════════════════════════════════════════════════════════════ -->
+<section id="enroll" class="av-section">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="form-card">
+      <div class="col-xl-10">
+        <div class="enroll-card sr">
           <div class="row g-5 align-items-center">
-            <div class="col-lg-5 reveal">
-              <div class="section-tag">Get Started</div>
-              <h2 class="section-title">Enroll<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Interest</span><br>Form</h2>
-              <p class="section-sub mt-3">No payment needed to register your interest. We'll reach out within 24 hours to discuss your goals and answer any questions.</p>
-              <div class="d-flex align-items-center gap-3 mt-4">
-                <i class="fas fa-shield-alt" style="color:var(--pink);font-size:24px;"></i>
-                <p style="color:var(--muted);font-size:13px;margin:0;">Your details are 100% private and will never be shared.</p>
+
+            <div class="col-lg-5">
+              <div class="section-eyebrow">Get Started</div>
+              <h2 class="section-heading">Enroll <span class="grad">Interest</span> Form</h2>
+              <p class="section-body mt-3 mb-4">No payment needed to register. We'll reach out within 24 hours to discuss your goals.</p>
+              <div class="av-img-wrap img-glow-border mb-4" style="border-radius:12px;">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80"
+                     alt="Enroll" style="aspect-ratio:16/9;object-fit:cover;"/>
+                <div class="av-img-overlay"></div>
+              </div>
+              <div class="d-flex align-items-start gap-3">
+                <i class="fas fa-shield-alt mt-1" style="color:var(--pink);font-size:20px;flex-shrink:0;"></i>
+                <p style="font-family:var(--font-accent);color:var(--muted);font-size:14px;margin:0;">Your details are 100% private and will never be shared with third parties.</p>
               </div>
             </div>
-            <div class="col-lg-7 reveal">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label">Full Name</label>
-                  <input type="text" class="form-input" placeholder="Your name" />
+
+            <div class="col-lg-7">
+              <form id="enroll-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="av-form-group">
+                      <label class="av-label">Full Name</label>
+                      <input type="text" class="av-input" placeholder="Your full name" required/>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="av-form-group">
+                      <label class="av-label">Phone Number</label>
+                      <input type="tel" class="av-input" placeholder="+91 XXXXX XXXXX" required/>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="av-form-group">
+                      <label class="av-label">Email Address</label>
+                      <input type="email" class="av-input" placeholder="you@email.com" required/>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="av-form-group">
+                      <label class="av-label">Experience Level</label>
+                      <select class="av-select">
+                        <option value="">Select level</option>
+                        <option>Complete Beginner</option>
+                        <option>Some Basics</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="av-form-group">
+                      <label class="av-label">Preferred Mode</label>
+                      <select class="av-select">
+                        <option value="">Select mode</option>
+                        <option>Offline – Studio</option>
+                        <option>Online – Remote</option>
+                        <option>Hybrid</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="av-form-group">
+                      <label class="av-label">Your Goal (Optional)</label>
+                      <textarea class="av-textarea" placeholder="I want to produce Bollywood tracks / become a mixing engineer..."></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn-av btn-primary submit-btn w-100" style="justify-content:center;">
+                      <i class="fas fa-paper-plane"></i> Submit Interest — It's Free
+                    </button>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <label class="form-label">Phone Number</label>
-                  <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" />
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Email Address</label>
-                  <input type="email" class="form-input" placeholder="you@email.com" />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Experience Level</label>
-                  <select class="form-input">
-                    <option value="">Select level</option>
-                    <option>Complete Beginner</option>
-                    <option>Some Basics</option>
-                    <option>Intermediate</option>
-                    <option>Advanced</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Preferred Mode</label>
-                  <select class="form-input">
-                    <option value="">Select mode</option>
-                    <option>Offline – Studio</option>
-                    <option>Online – Remote</option>
-                    <option>Hybrid</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Tell Us Your Goal (Optional)</label>
-                  <textarea class="form-input" rows="3" placeholder="I want to produce Bollywood tracks / become a mixing engineer..."></textarea>
-                </div>
-                <div class="col-12">
-                  <button class="btn-primary-glow w-100" onclick="handleSubmit()">
-                    <i class="fas fa-paper-plane me-2"></i>Submit Interest — It's Free
-                  </button>
-                </div>
-              </div>
+              </form>
             </div>
+
           </div>
         </div>
       </div>
@@ -1361,272 +860,92 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════════════
      FOOTER
-══════════════════════════════════════════════ -->
-<footer>
+═══════════════════════════════════════════════════════════════ -->
+<footer id="av-footer">
   <div class="container">
     <div class="row g-5">
+
+      <!-- Brand -->
       <div class="col-lg-4">
-        <div class="footer-logo">
-          <span style="font-family:'Bebas Neue',sans-serif;font-size:30px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;">AVOTUNE STUDIO</span>
+        <div class="footer-logo-text">Avotune</div>
+        <div class="footer-sub">Studio</div>
+        <p class="footer-desc">Delhi's premier music production studio and training institute — building the next generation of Indian music producers.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
         </div>
-        <p class="footer-desc">Where passion meets craft. Delhi's premier music production studio and training institute — building the next generation of Indian music producers.</p>
-        <div class="mt-4">
-          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-spotify"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-        </div>
       </div>
-      <div class="col-6 col-lg-2">
-        <div class="footer-title">Course</div>
-        <a href="#about-course" class="footer-link">Overview</a>
-        <a href="#learn" class="footer-link">Curriculum</a>
-        <a href="#structure" class="footer-link">Schedule</a>
-        <a href="#instructor" class="footer-link">Instructor</a>
-        <a href="#enroll" class="footer-link">Enroll</a>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="footer-col-title">Course</div>
+        <a href="courses.html" class="footer-link">Overview</a>
+        <a href="courses.html" class="footer-link">Curriculum</a>
+        <a href="courses.html" class="footer-link">Schedule</a>
+        <a href="courses.html" class="footer-link">Instructor</a>
+        <a href="#enroll"       class="footer-link">Enroll</a>
       </div>
-      <div class="col-6 col-lg-2">
-        <div class="footer-title">Studio</div>
-        <a href="#gallery" class="footer-link">Gallery</a>
-        <a href="#about" class="footer-link">About Us</a>
-        <a href="#testimonials" class="footer-link">Alumni</a>
-        <a href="#faq" class="footer-link">FAQ</a>
+
+      <!-- Studio links -->
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="footer-col-title">Studio</div>
+        <a href="#gallery"       class="footer-link">Gallery</a>
+        <a href="about.html"     class="footer-link">About Us</a>
+        <a href="#testimonials"  class="footer-link">Alumni</a>
+        <a href="#faq"           class="footer-link">FAQ</a>
+        <a href="blog.html"      class="footer-link">Blog</a>
       </div>
+
+      <!-- Contact -->
       <div class="col-lg-4">
-        <div class="footer-title">Contact</div>
-        <p style="color:var(--muted);font-size:14px;line-height:1.8;">
-          <i class="fas fa-map-marker-alt me-2" style="color:var(--pink);"></i>Avotune Studio, New Delhi, India<br>
-          <i class="fas fa-envelope me-2" style="color:var(--pink);"></i>hello@avotunesudio.in<br>
-          <i class="fas fa-phone me-2" style="color:var(--pink);"></i>+91 98765 43210<br>
-          <i class="fas fa-clock me-2" style="color:var(--pink);"></i>Mon–Sat, 10 AM – 8 PM
+        <div class="footer-col-title">Contact</div>
+        <p class="footer-contact">
+          <i class="fas fa-map-marker-alt"></i>Avotune Studio, New Delhi, India<br>
+          <i class="fas fa-envelope"></i>hello@avotunesudio.in<br>
+          <i class="fas fa-phone"></i>+91 98765 43210<br>
+          <i class="fas fa-clock"></i>Mon–Sat · 10 AM – 8 PM
         </p>
       </div>
+
     </div>
+
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Avotune Studio. All rights reserved.</div>
-      <div class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</div>
+      <span class="footer-copy">© 2025 Avotune Studio. All rights reserved.</span>
+      <span class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</span>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════
-     FLOATING PLAYER
-══════════════════════════════════════════════ -->
-<div id="floatPlayer">
-  <div class="fp-disc" id="fpDisc"><i class="fas fa-music"></i></div>
-  <div class="fp-info">
-    <div class="fp-title">Avotune Vibe Mix</div>
-    <div class="fp-sub">Click to play preview</div>
+<!-- ═══════════════════════════════════════════════════════════════
+     FLOATING MUSIC PLAYER
+═══════════════════════════════════════════════════════════════ -->
+<div id="float-player">
+  <div class="fp-vinyl" id="fp-vinyl"><i class="fas fa-music"></i></div>
+  <div class="fp-meta">
+    <div class="fp-song"  id="fp-title">Avotune Vibe Mix</div>
+    <div class="fp-artist" id="fp-artist">Avotune Beats</div>
   </div>
-  <button class="fp-btn" id="fpBtn" onclick="togglePlay()"><i class="fas fa-play" id="fpIcon"></i></button>
+  <div class="fp-progress-wrap">
+    <div class="fp-progress"><div class="fp-bar" id="fp-bar"></div></div>
+    <div class="fp-time" id="fp-time">0:00 / 3:00</div>
+  </div>
+  <div class="fp-controls">
+    <button class="fp-btn" id="fp-prev" title="Previous"><i class="fas fa-backward-step"></i></button>
+    <button class="fp-play-btn" id="fp-play" title="Play/Pause"><i class="fas fa-play" id="fp-icon"></i></button>
+    <button class="fp-btn" id="fp-next" title="Next"><i class="fas fa-forward-step"></i></button>
+  </div>
 </div>
 
+<!-- Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-<script>
-// ── CURSOR ──────────────────────────────────────
-const cursor = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursorRing');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  setTimeout(() => {
-    cursorRing.style.left = e.clientX + 'px';
-    cursorRing.style.top = e.clientY + 'px';
-  }, 60);
-});
+<!-- Shared JS -->
+<script src="js/main.js"></script>
+<!-- Home JS -->
+<script src="js/home.js"></script>
 
-// ── NAVBAR SCROLL ─────────────────────────────────
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ── PARTICLES ─────────────────────────────────────
-const pCanvas = document.getElementById('particles');
-const pCtx = pCanvas.getContext('2d');
-let particles = [];
-function resizeParticles() { pCanvas.width = window.innerWidth; pCanvas.height = window.innerHeight; }
-resizeParticles();
-window.addEventListener('resize', resizeParticles);
-class Particle {
-  constructor() { this.reset(); }
-  reset() {
-    this.x = Math.random() * pCanvas.width;
-    this.y = Math.random() * pCanvas.height;
-    this.r = Math.random() * 1.5 + .5;
-    this.vx = (Math.random() - .5) * .3;
-    this.vy = (Math.random() - .5) * .3;
-    this.alpha = Math.random() * .3 + .05;
-    this.color = Math.random() > .5 ? '#ff2d9b' : '#00d4ff';
-  }
-  update() {
-    this.x += this.vx; this.y += this.vy;
-    if (this.x < 0 || this.x > pCanvas.width || this.y < 0 || this.y > pCanvas.height) this.reset();
-  }
-  draw() {
-    pCtx.beginPath();
-    pCtx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    pCtx.fillStyle = this.color;
-    pCtx.globalAlpha = this.alpha;
-    pCtx.fill();
-  }
-}
-for (let i = 0; i < 80; i++) particles.push(new Particle());
-function animParticles() {
-  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-  particles.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animParticles);
-}
-animParticles();
-
-// ── WAVEFORM ─────────────────────────────────────
-const wCanvas = document.getElementById('waveCanvas');
-const wCtx = wCanvas.getContext('2d');
-function resizeWave() { wCanvas.width = wCanvas.offsetWidth; wCanvas.height = 120; }
-resizeWave();
-window.addEventListener('resize', resizeWave);
-let waveOffset = 0;
-function drawWave() {
-  wCtx.clearRect(0, 0, wCanvas.width, wCanvas.height);
-  const grad = wCtx.createLinearGradient(0, 0, wCanvas.width, 0);
-  grad.addColorStop(0, 'rgba(255,45,155,0)');
-  grad.addColorStop(.3, 'rgba(255,45,155,.5)');
-  grad.addColorStop(.7, 'rgba(0,212,255,.5)');
-  grad.addColorStop(1, 'rgba(0,212,255,0)');
-  for (let w = 0; w < 3; w++) {
-    wCtx.beginPath();
-    wCtx.strokeStyle = grad;
-    wCtx.lineWidth = 1.5 - w * .4;
-    wCtx.globalAlpha = .6 - w * .15;
-    for (let x = 0; x <= wCanvas.width; x += 2) {
-      const y = 60 + Math.sin((x / wCanvas.width) * Math.PI * 6 + waveOffset + w * 1.2) * (20 - w * 5)
-                   + Math.sin((x / wCanvas.width) * Math.PI * 12 + waveOffset * 1.5 + w) * (8 - w * 2);
-      x === 0 ? wCtx.moveTo(x, y) : wCtx.lineTo(x, y);
-    }
-    wCtx.stroke();
-  }
-  waveOffset += .025;
-  requestAnimationFrame(drawWave);
-}
-drawWave();
-
-// ── FAQ TOGGLE ─────────────────────────────────────
-function toggleFAQ(el) {
-  const item = el.parentElement;
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-// ── COUNTDOWN ─────────────────────────────────────
-const target = new Date(Date.now() + (2 * 86400 + 14 * 3600 + 37 * 60) * 1000);
-function updateCD() {
-  const diff = target - Date.now();
-  if (diff <= 0) return;
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
-  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
-  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
-}
-setInterval(updateCD, 1000);
-updateCD();
-
-// ── SCROLL REVEAL ──────────────────────────────────
-const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), 80);
-    }
-  });
-}, { threshold: .1 });
-reveals.forEach(r => revealObs.observe(r));
-
-// ── SKILL BARS ─────────────────────────────────────
-const barObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-fill').forEach(f => {
-        f.style.width = f.dataset.width + '%';
-      });
-    }
-  });
-}, { threshold: .2 });
-document.querySelectorAll('.instructor-card').forEach(c => barObs.observe(c));
-
-// ── FLOATING PLAYER ────────────────────────────────
-let playing = false;
-let audioCtx, oscillator, gainNode;
-function togglePlay() {
-  playing = !playing;
-  const fp = document.getElementById('floatPlayer');
-  const icon = document.getElementById('fpIcon');
-  if (playing) {
-    fp.classList.add('playing');
-    icon.className = 'fas fa-pause';
-    // Generate a simple ambient tone sequence
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    gainNode = audioCtx.createGain();
-    gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(.08, audioCtx.currentTime + .5);
-    gainNode.connect(audioCtx.destination);
-    playToneSequence();
-  } else {
-    fp.classList.remove('playing');
-    icon.className = 'fas fa-play';
-    if (gainNode) {
-      gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + .5);
-      setTimeout(() => { if (audioCtx) audioCtx.close(); }, 600);
-    }
-  }
-}
-function playToneSequence() {
-  const freqs = [220, 261.63, 329.63, 392, 440, 523.25];
-  let i = 0;
-  function next() {
-    if (!playing) return;
-    const osc = audioCtx.createOscillator();
-    const g = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freqs[i % freqs.length], audioCtx.currentTime);
-    g.gain.setValueAtTime(.05, audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(.001, audioCtx.currentTime + .4);
-    osc.connect(g);
-    g.connect(gainNode);
-    osc.start();
-    osc.stop(audioCtx.currentTime + .45);
-    i++;
-    setTimeout(next, 500);
-  }
-  next();
-}
-
-// ── FORM SUBMIT ─────────────────────────────────────
-function handleSubmit() {
-  const btn = event.target;
-  btn.innerHTML = '<i class="fas fa-check me-2"></i>Interest Submitted! We\'ll Contact You Soon.';
-  btn.style.background = 'linear-gradient(135deg,#00c851,#00d4ff)';
-  setTimeout(() => {
-    btn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Submit Interest — It\'s Free';
-    btn.style.background = '';
-  }, 4000);
-}
-
-// ── GALLERY HOVER EFFECT ─────────────────────────────
-document.querySelectorAll('.gallery-placeholder').forEach(el => {
-  el.addEventListener('mousemove', e => {
-    const rect = el.getBoundingClientRect();
-    const mx = ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%';
-    const my = ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%';
-    el.style.setProperty('--mx', mx);
-    el.style.setProperty('--my', my);
-  });
-});
-</script>
 </body>
 </html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Contact Avotune Studio — reach out for course enquiries, studio bookings, or collaborations."/>
+  <title>Contact Us — Avotune Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<canvas id="av-particles"></canvas>
+<div class="nav-overlay"></div>
+
+<!-- ── READING PROGRESS ──────────────────────────────────────── -->
+<div id="read-progress" style="position:fixed;top:0;left:0;height:2px;background:var(--grad-main);z-index:1001;width:0;transition:width .2s;"></div>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════════════════ -->
+<nav id="av-nav">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="nav-logo text-decoration-none">
+        <span class="nav-logo-text">Avotune</span>
+        <span class="nav-logo-sub">Studio</span>
+      </a>
+      <div class="nav-links-wrap d-flex align-items-center gap-3">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-primary ms-2">Enroll Now</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ PAGE HERO ════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=1800&q=80" alt="Contact"/>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-grid"></div>
+  </div>
+  <div class="container page-hero-content">
+    <div class="page-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Contact</span>
+    </div>
+    <div class="section-eyebrow">Get In Touch</div>
+    <h1 class="display-title">Let's <span class="text-grad">Talk</span><br>Music</h1>
+    <p class="section-body mt-3" style="max-width:480px;">
+      Have questions about a course, want to book a studio session, or just want to say hi? We'd love to hear from you.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ MAIN CONTACT SECTION ═════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- ── INFO SIDEBAR ──────────────────────────────────── -->
+      <div>
+        <div class="contact-info-card sr sr-left">
+          <div class="cic-map">
+            <div class="cic-map-placeholder">
+              <i class="fas fa-map-marker-alt map-pin"></i>
+              <span>Avotune Studio, New Delhi</span>
+            </div>
+          </div>
+          <div class="cic-body">
+            <div class="contact-detail-row">
+              <div class="cdr-icon icon-pink"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="cdr-label">Address</div>
+                <div class="cdr-value">42, Music Lane, Lajpat Nagar<br>New Delhi, 110024</div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="cdr-icon icon-cyan"><i class="fas fa-phone"></i></div>
+              <div>
+                <div class="cdr-label">Phone</div>
+                <div class="cdr-value">
+                  <a href="tel:+919876543210">+91 98765 43210</a>
+                  <button data-copy="+919876543210" title="Copy" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;margin-left:8px;"><i class="fas fa-copy"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="cdr-icon icon-purple"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="cdr-label">Email</div>
+                <div class="cdr-value">
+                  <a href="mailto:hello@avotunesudio.in">hello@avotunesudio.in</a>
+                  <button data-copy="hello@avotunesudio.in" title="Copy" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;margin-left:8px;"><i class="fas fa-copy"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="contact-detail-row">
+              <div class="cdr-icon icon-teal"><i class="fas fa-clock"></i></div>
+              <div>
+                <div class="cdr-label">Office Hours</div>
+                <div class="cdr-value">
+                  <table class="hours-table">
+                    <tr class="hours-row" data-day="Monday"><td>Mon – Fri</td><td class="hours-open">10 AM – 8 PM</td></tr>
+                    <tr class="hours-row" data-day="Saturday"><td>Saturday</td><td class="hours-open">11 AM – 6 PM</td></tr>
+                    <tr class="hours-row" data-day="Sunday"><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="social-connect">
+            <div class="sc-title">Find Us Online</div>
+            <div class="social-row">
+              <a href="#" class="soc-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="soc-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="soc-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="soc-btn" title="Spotify"><i class="fab fa-spotify"></i></a>
+              <a href="#" class="soc-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CONTACT FORM ──────────────────────────────────── -->
+      <div>
+        <div class="contact-form-card sr sr-right">
+          <div class="section-eyebrow mb-3">Send A Message</div>
+          <h2 class="section-heading mb-2">We Reply <span class="grad">Within</span><br>24 Hours</h2>
+          <p class="section-body mb-4" style="max-width:100%">Choose what you'd like to talk about, then fill in the form below.</p>
+
+          <div id="contact-form-inner">
+            <!-- Subject Chips -->
+            <div style="margin-bottom:24px;">
+              <label class="av-label">What's this about?</label>
+              <div class="subject-chips">
+                <button type="button" class="subject-chip active" data-subject="Course Enquiry">🎓 Course Enquiry</button>
+                <button type="button" class="subject-chip" data-subject="Studio Booking">🎙 Studio Booking</button>
+                <button type="button" class="subject-chip" data-subject="Collaboration">🤝 Collaboration</button>
+                <button type="button" class="subject-chip" data-subject="General">💬 General</button>
+              </div>
+              <input type="hidden" id="subject-input" value="Course Enquiry"/>
+            </div>
+
+            <form id="contact-form" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="av-form-group">
+                    <label class="av-label">First Name</label>
+                    <input type="text" name="fname" class="av-input" placeholder="Aryan" required/>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="av-form-group">
+                    <label class="av-label">Last Name</label>
+                    <input type="text" name="lname" class="av-input" placeholder="Mehta"/>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="av-form-group">
+                    <label class="av-label">Email Address</label>
+                    <input type="email" name="email" class="av-input" placeholder="you@email.com" required/>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="av-form-group">
+                    <label class="av-label">Phone (Optional)</label>
+                    <input type="tel" name="phone" class="av-input" placeholder="+91 XXXXX XXXXX"/>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="av-form-group">
+                    <label class="av-label">Your Message <span style="font-size:10px;color:var(--muted);">(<span id="char-count">0</span>/500)</span></label>
+                    <textarea id="msg-textarea" name="message" class="av-textarea" maxlength="500" placeholder="Tell us what you're looking for…" required></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-av btn-primary submit-btn w-100" style="justify-content:center;">
+                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- SUCCESS STATE -->
+          <div id="form-success" class="form-success">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h3 class="success-title">Message Sent!</h3>
+            <p class="success-sub">Thanks for reaching out. Our team will get back to you within 24 hours.</p>
+            <button id="reset-form-btn" class="btn-av btn-outline mt-2">Send Another Message</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /contact-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════ MAP SECTION ══════════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Find Us</div>
+      <h2 class="section-heading">Visit The <span class="grad">Studio</span></h2>
+      <p class="section-body mx-auto text-center mt-2">Walk-ins welcome during office hours. Bring your passion — we'll take care of the rest.</p>
+    </div>
+    <div class="map-card sr">
+      <div class="map-card-inner">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>42, Music Lane, Lajpat Nagar, New Delhi — 110024</span>
+        <a href="https://maps.google.com" target="_blank" class="btn-av btn-outline" style="position:relative;font-size:12px;">
+          <i class="fas fa-directions"></i> Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5 sr">
+          <div class="section-eyebrow mx-auto justify-content-center">Quick Answers</div>
+          <h2 class="section-heading">Common <span class="grad">Questions</span></h2>
+        </div>
+        <div class="faq-wrap sr">
+          <div class="faq-box">
+            <div class="faq-trigger">How quickly do you respond to enquiries?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">We respond to all messages within 24 hours on weekdays. For urgent matters, WhatsApp is the fastest way to reach us — we typically reply within the hour during studio hours.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">Can I visit the studio before enrolling?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">Absolutely! We encourage prospective students to visit the studio for a free 30-minute consultation. You'll get to see the gear, meet the team, and ask all your questions in person.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">Do you accept collaboration or guest bookings?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">Yes! We welcome independent artists and producers who want to use our studio on an hourly or daily basis. Contact us with your requirements and we'll share our availability and rates.</div>
+          </div>
+          <div class="faq-box">
+            <div class="faq-trigger">How do I get to the studio?<span class="faq-plus"><i class="fas fa-plus"></i></span></div>
+            <div class="faq-body">We're located in Lajpat Nagar, New Delhi — a 5-minute walk from Lajpat Nagar Metro Station (Pink Line). Parking is available on the premises for 2-wheelers. Click "Get Directions" on the map above for a full route.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════════════════ -->
+<footer id="av-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-logo-text">Avotune</div>
+        <div class="footer-sub">Studio</div>
+        <p class="footer-desc">Delhi's premier music production studio and training institute — building the next generation of Indian music producers.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Navigate</div>
+        <a href="index.html"   class="footer-link">Home</a>
+        <a href="about.html"   class="footer-link">About Us</a>
+        <a href="courses.html" class="footer-link">Courses</a>
+        <a href="blog.html"    class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Courses</div>
+        <a href="courses.html" class="footer-link">MMPM — Flagship</a>
+        <a href="courses.html" class="footer-link">Mixing Bootcamp</a>
+        <a href="courses.html" class="footer-link">Sound Design</a>
+        <a href="courses.html" class="footer-link">DJ Masterclass</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-col-title">Contact</div>
+        <p class="footer-contact">
+          <i class="fas fa-map-marker-alt"></i>42, Music Lane, Lajpat Nagar, Delhi<br>
+          <i class="fas fa-envelope"></i>hello@avotunesudio.in<br>
+          <i class="fas fa-phone"></i>+91 98765 43210<br>
+          <i class="fas fa-clock"></i>Mon–Sat · 10 AM – 8 PM
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Avotune Studio. All rights reserved.</span>
+      <span class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Player -->
+<div id="float-player">
+  <div class="fp-vinyl" id="fp-vinyl"><i class="fas fa-music"></i></div>
+  <div class="fp-meta">
+    <div class="fp-song" id="fp-title">Avotune Vibe Mix</div>
+    <div class="fp-artist" id="fp-artist">Avotune Beats</div>
+  </div>
+  <div class="fp-progress-wrap">
+    <div class="fp-progress"><div class="fp-bar" id="fp-bar"></div></div>
+    <div class="fp-time" id="fp-time">0:00 / 3:00</div>
+  </div>
+  <div class="fp-controls">
+    <button class="fp-btn" id="fp-prev"><i class="fas fa-backward-step"></i></button>
+    <button class="fp-play-btn" id="fp-play"><i class="fas fa-play" id="fp-icon"></i></button>
+    <button class="fp-btn" id="fp-next"><i class="fas fa-forward-step"></i></button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script><!-- reuse player logic -->
+<script src="js/contact.js"></script>
+</body>
+</html>

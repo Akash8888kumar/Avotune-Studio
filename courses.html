@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Avotune Studio Courses — MMPM flagship program, Mixing Bootcamp, Sound Design, and DJ Masterclass."/>
+  <title>Courses — Avotune Studio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/courses.css"/>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<canvas id="av-particles"></canvas>
+<div class="nav-overlay"></div>
+
+<!-- ═══════════════════ NAVBAR ════════════════════════════════ -->
+<nav id="av-nav">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="nav-logo text-decoration-none">
+        <span class="nav-logo-text">Avotune</span>
+        <span class="nav-logo-sub">Studio</span>
+      </a>
+      <div class="nav-links-wrap d-flex align-items-center gap-3">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html" class="active">Courses</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-primary ms-2">Enroll Now</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ PAGE HERO ═════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1800&q=80" alt="Courses"/>
+    <div class="page-hero-gradient"></div>
+    <div class="page-hero-grid"></div>
+  </div>
+  <div class="container page-hero-content">
+    <div class="page-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Courses</span>
+    </div>
+    <div class="section-eyebrow">What We Teach</div>
+    <h1 class="display-title">Pick Your <span class="text-grad">Path</span><br>To Pro</h1>
+    <p class="section-body mt-3" style="max-width:500px;">
+      From our flagship 6-month MMPM program to intensive weekend bootcamps — every course is taught inside a real studio by working professionals.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ COURSES ═══════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+
+    <!-- Filter tabs -->
+    <div class="filter-tabs sr">
+      <button class="filter-tab active" data-filter="all">All Courses</button>
+      <button class="filter-tab" data-filter="flagship">Flagship</button>
+      <button class="filter-tab" data-filter="mixing">Mixing</button>
+      <button class="filter-tab" data-filter="design">Sound Design</button>
+      <button class="filter-tab" data-filter="dj">DJ & Live</button>
+    </div>
+
+    <!-- ── FEATURED: MMPM ──────────────────────────────────── -->
+    <div class="course-featured sr" data-filter="flagship">
+      <div class="cf-badge">⭐ Flagship Course</div>
+      <div class="cf-img">
+        <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=1200&q=80" alt="MMPM Course"/>
+        <div class="cf-img-overlay"></div>
+        <div class="cf-img-content">
+          <div class="cf-title-overlay">Master Music<br>Production &<br>Mixing</div>
+          <p class="cf-sub">6-Month Comprehensive Program · Batch 12 · June 2025</p>
+        </div>
+      </div>
+      <div class="cf-details">
+        <div>
+          <div class="cf-meta">
+            <span class="cf-meta-item"><i class="fas fa-calendar"></i>6 Months</span>
+            <span class="cf-meta-item"><i class="fas fa-layer-group"></i>120+ Sessions</span>
+            <span class="cf-meta-item"><i class="fas fa-users"></i>Max 20 Students</span>
+            <span class="cf-meta-item"><i class="fas fa-certificate"></i>Certified</span>
+            <span class="cf-meta-item"><i class="fas fa-briefcase"></i>Placement Support</span>
+            <span class="cf-meta-item"><i class="fas fa-laptop"></i>Offline + Online Portal</span>
+          </div>
+          <p class="cf-desc">The complete A-to-Z program for aspiring music producers. You'll cover music theory, sound design, arrangement, mixing, mastering, and music business — all inside a professional studio, guided by working industry professionals. Our most rigorous and transformative course.</p>
+          <div class="d-flex gap-3 flex-wrap mt-3">
+            <a href="index.html#enroll" class="btn-av btn-primary"><i class="fas fa-graduation-cap"></i>Enroll Now — 7 Seats Left</a>
+            <button class="btn-av btn-outline" onclick="toggleCurriculum('mmpm')"><i class="fas fa-list"></i>View Full Curriculum</button>
+          </div>
+        </div>
+        <div class="cf-price-box">
+          <div class="cf-price-label">Course Fee</div>
+          <div class="cf-price">₹45K</div>
+          <div class="cf-old-price">₹47,500</div>
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:1.5px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;">
+            <i class="fas fa-tag"></i> Early Bird Save ₹2,500
+          </div>
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;color:var(--muted);">EMI Available · No Cost</div>
+        </div>
+      </div>
+      <!-- Curriculum drawer -->
+      <div class="course-detail-wrap" id="curriculum-mmpm" style="padding:30px 40px;">
+        <h4 style="font-family:var(--font-display);font-size:26px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Full Curriculum</h4>
+        <div id="mmpm-curriculum">
+          <div class="curr-module">
+            <div class="curr-header"><div class="curr-header-left"><span class="curr-num">01</span><span class="curr-name">Music Theory Foundations</span></div><span class="curr-meta">3 weeks · 12 lessons</span><span class="curr-arrow"><i class="fas fa-chevron-down"></i></span></div>
+            <div class="curr-body"><div class="curr-lessons">
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Notes, Scales & Keys<span class="lesson-free">Free Preview</span><span class="lesson-dur">45 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Chords & Progressions<span class="lesson-dur">60 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Rhythm, Time Signatures & Groove<span class="lesson-dur">55 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Melody Writing Workshop<span class="lesson-dur">90 min</span></div>
+            </div></div>
+          </div>
+          <div class="curr-module">
+            <div class="curr-header"><div class="curr-header-left"><span class="curr-num">02</span><span class="curr-name">DAW Mastery</span></div><span class="curr-meta">4 weeks · 16 lessons</span><span class="curr-arrow"><i class="fas fa-chevron-down"></i></span></div>
+            <div class="curr-body"><div class="curr-lessons">
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>FL Studio Complete Workflow<span class="lesson-free">Free Preview</span><span class="lesson-dur">80 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Ableton Live Session & Arrangement View<span class="lesson-dur">75 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Logic Pro X Deep Dive<span class="lesson-dur">70 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>MIDI Programming & Quantisation<span class="lesson-dur">60 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Automation & Modulation<span class="lesson-dur">55 min</span></div>
+            </div></div>
+          </div>
+          <div class="curr-module">
+            <div class="curr-header"><div class="curr-header-left"><span class="curr-num">03</span><span class="curr-name">Sound Design</span></div><span class="curr-meta">3 weeks · 14 lessons</span><span class="curr-arrow"><i class="fas fa-chevron-down"></i></span></div>
+            <div class="curr-body"><div class="curr-lessons">
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Subtractive Synthesis from Scratch<span class="lesson-dur">90 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>FM & Wavetable Synthesis<span class="lesson-dur">80 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Drum Design — 808s, Kicks & Snares<span class="lesson-dur">75 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Sampling & Sample Manipulation<span class="lesson-dur">70 min</span></div>
+            </div></div>
+          </div>
+          <div class="curr-module">
+            <div class="curr-header"><div class="curr-header-left"><span class="curr-num">04</span><span class="curr-name">Mixing & Mastering</span></div><span class="curr-meta">5 weeks · 20 lessons</span><span class="curr-arrow"><i class="fas fa-chevron-down"></i></span></div>
+            <div class="curr-body"><div class="curr-lessons">
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>EQ Principles & Frequency Management<span class="lesson-dur">90 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Compression — From Basics to Parallel<span class="lesson-dur">85 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Reverb, Delay & Spatial Audio<span class="lesson-dur">80 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Sidechain & Bus Processing<span class="lesson-dur">75 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Mastering for Streaming (LUFS, True Peak)<span class="lesson-dur">90 min</span></div>
+            </div></div>
+          </div>
+          <div class="curr-module">
+            <div class="curr-header"><div class="curr-header-left"><span class="curr-num">05</span><span class="curr-name">Music Business & Career</span></div><span class="curr-meta">2 weeks · 8 lessons</span><span class="curr-arrow"><i class="fas fa-chevron-down"></i></span></div>
+            <div class="curr-body"><div class="curr-lessons">
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Music Distribution & Royalties<span class="lesson-dur">60 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Pitching to Labels & Sync Agencies<span class="lesson-dur">55 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Building Your Artist Brand<span class="lesson-dur">60 min</span></div>
+              <div class="curr-lesson"><i class="fas fa-play-circle lesson-icon"></i>Graduation Showcase Prep<span class="lesson-dur">120 min</span></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COURSE GRID ──────────────────────────────────────── -->
+    <div class="courses-grid">
+
+      <!-- Mixing Bootcamp -->
+      <div class="course-card sr sr-d1" data-filter="mixing">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=700&q=80" alt="Mixing Bootcamp"/>
+          <div class="cc-img-overlay"></div>
+          <div class="cc-level level-inter">Intermediate</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-category">Mixing</div>
+          <div class="cc-title">Mixing Bootcamp</div>
+          <p class="cc-desc">An intensive 4-week deep-dive into professional mixing. EQ, compression, reverb, bus processing, referencing, and delivering a broadcast-ready mix. Hands-on every session.</p>
+          <div class="cc-stats">
+            <span class="cc-stat"><i class="fas fa-calendar"></i>4 Weeks</span>
+            <span class="cc-stat"><i class="fas fa-layer-group"></i>32 Sessions</span>
+            <span class="cc-stat"><i class="fas fa-users"></i>Max 12</span>
+          </div>
+          <div class="cc-footer">
+            <div>
+              <div class="cc-price">₹18K</div>
+              <div class="cc-price-sub">One-time fee</div>
+            </div>
+            <a href="index.html#enroll" class="btn-av btn-primary" style="padding:10px 20px;font-size:12px;">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sound Design -->
+      <div class="course-card sr sr-d2" data-filter="design">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1563330232-57114bb0823c?w=700&q=80" alt="Sound Design"/>
+          <div class="cc-img-overlay"></div>
+          <div class="cc-level level-beginner">Beginner</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-category">Sound Design</div>
+          <div class="cc-title">Sound Design Fundamentals</div>
+          <p class="cc-desc">Master subtractive, FM, and wavetable synthesis from scratch. Build a library of signature sounds you'll use for the rest of your career. Perfect starting course.</p>
+          <div class="cc-stats">
+            <span class="cc-stat"><i class="fas fa-calendar"></i>6 Weeks</span>
+            <span class="cc-stat"><i class="fas fa-layer-group"></i>24 Sessions</span>
+            <span class="cc-stat"><i class="fas fa-users"></i>Max 15</span>
+          </div>
+          <div class="cc-footer">
+            <div>
+              <div class="cc-price">₹14K</div>
+              <div class="cc-price-sub">One-time fee</div>
+            </div>
+            <a href="index.html#enroll" class="btn-av btn-primary" style="padding:10px 20px;font-size:12px;">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DJ Masterclass -->
+      <div class="course-card sr sr-d3" data-filter="dj">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=700&q=80" alt="DJ Masterclass"/>
+          <div class="cc-img-overlay"></div>
+          <div class="cc-level level-beginner">All Levels</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-category">DJ & Live Performance</div>
+          <div class="cc-title">DJ Masterclass</div>
+          <p class="cc-desc">Learn on Pioneer CDJ-3000 + DJM-A9. Beatmatching, phrasing, harmonic mixing, live performance techniques, and how to read a crowd and build a set that moves rooms.</p>
+          <div class="cc-stats">
+            <span class="cc-stat"><i class="fas fa-calendar"></i>8 Weeks</span>
+            <span class="cc-stat"><i class="fas fa-layer-group"></i>32 Sessions</span>
+            <span class="cc-stat"><i class="fas fa-users"></i>Max 8</span>
+          </div>
+          <div class="cc-footer">
+            <div>
+              <div class="cc-price">₹22K</div>
+              <div class="cc-price-sub">One-time fee</div>
+            </div>
+            <a href="index.html#enroll" class="btn-av btn-primary" style="padding:10px 20px;font-size:12px;">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vocal Production -->
+      <div class="course-card sr sr-d1" data-filter="mixing">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=700&q=80" alt="Vocal Production"/>
+          <div class="cc-img-overlay"></div>
+          <div class="cc-level level-inter">Intermediate</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-category">Mixing · Vocals</div>
+          <div class="cc-title">Vocal Production & Processing</div>
+          <p class="cc-desc">From recording technique to pitch correction, vocal layering, harmonies, and the chain that makes vocals sit perfectly in a dense mix. Learn in our recording booth.</p>
+          <div class="cc-stats">
+            <span class="cc-stat"><i class="fas fa-calendar"></i>3 Weeks</span>
+            <span class="cc-stat"><i class="fas fa-layer-group"></i>18 Sessions</span>
+            <span class="cc-stat"><i class="fas fa-users"></i>Max 10</span>
+          </div>
+          <div class="cc-footer">
+            <div>
+              <div class="cc-price">₹12K</div>
+              <div class="cc-price-sub">One-time fee</div>
+            </div>
+            <a href="index.html#enroll" class="btn-av btn-primary" style="padding:10px 20px;font-size:12px;">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bollywood Production -->
+      <div class="course-card sr sr-d2" data-filter="design">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?w=700&q=80" alt="Bollywood Production"/>
+          <div class="cc-img-overlay"></div>
+          <div class="cc-level level-advanced">Advanced</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-category">Production · Specialisation</div>
+          <div class="cc-title">Bollywood Production Intensive</div>
+          <p class="cc-desc">Genre-specific production course covering Bollywood composition, orchestral programming, folk-fusion workflows, and how to pitch and deliver tracks to Bollywood music directors.</p>
+          <div class="cc-stats">
+            <span class="cc-stat"><i class="fas fa-calendar"></i>5 Weeks</span>
+            <span class="cc-stat"><i class="fas fa-layer-group"></i>20 Sessions</span>
+            <span class="cc-stat"><i class="fas fa-users"></i>Max 12</span>
+          </div>
+          <div class="cc-footer">
+            <div>
+              <div class="cc-price">₹20K</div>
+              <div class="cc-price-sub">One-time fee</div>
+            </div>
+            <a href="index.html#enroll" class="btn-av btn-primary" style="padding:10px 20px;font-size:12px;">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1-on-1 Mentorship -->
+      <div class="course-card sr sr-d3" data-filter="flagship">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" alt="1-on-1 Mentorship"/>
+          <div class="cc-img-overlay"></div>
+          <div class="cc-level level-advanced">All Levels</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-category">Private · Mentorship</div>
+          <div class="cc-title">1-on-1 Private Mentorship</div>
+          <p class="cc-desc">Fully customised sessions with Aryan or Priya, designed around your specific goals, your existing music, and your career stage. Maximum impact, zero wasted time.</p>
+          <div class="cc-stats">
+            <span class="cc-stat"><i class="fas fa-calendar"></i>Flexible</span>
+            <span class="cc-stat"><i class="fas fa-layer-group"></i>Per Session</span>
+            <span class="cc-stat"><i class="fas fa-user"></i>1 Student</span>
+          </div>
+          <div class="cc-footer">
+            <div>
+              <div class="cc-price">₹3.5K</div>
+              <div class="cc-price-sub">Per 2hr session</div>
+            </div>
+            <a href="contact.html" class="btn-av btn-outline" style="padding:10px 20px;font-size:12px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /courses-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════ TOOLS SECTION ═════════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">What You'll Work With</div>
+      <h2 class="section-heading">Industry <span class="grad">Tools</span></h2>
+      <p class="section-body mx-auto text-center mt-3">Every tool taught at Avotune is actually used in professional studios worldwide.</p>
+    </div>
+    <div class="tools-grid sr">
+      <div class="tool-card">
+        <div class="tool-icon icon-pink"><i class="fas fa-wave-square"></i></div>
+        <div class="tool-name">Ableton Live</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-cyan"><i class="fas fa-music"></i></div>
+        <div class="tool-name">FL Studio</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-purple"><i class="fas fa-apple-whole"></i></div>
+        <div class="tool-name">Logic Pro X</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-teal"><i class="fas fa-sliders"></i></div>
+        <div class="tool-name">Pro Tools</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-pink"><i class="fas fa-microphone"></i></div>
+        <div class="tool-name">Serum</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-cyan"><i class="fas fa-drum"></i></div>
+        <div class="tool-name">Native Instruments</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-purple"><i class="fas fa-headphones"></i></div>
+        <div class="tool-name">Waves Plugins</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-teal"><i class="fas fa-compact-disc"></i></div>
+        <div class="tool-name">iZotope Ozone</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-pink"><i class="fas fa-tower-broadcast"></i></div>
+        <div class="tool-name">Neve Console</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-cyan"><i class="fas fa-volume-high"></i></div>
+        <div class="tool-name">Genelec Monitors</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-purple"><i class="fas fa-record-vinyl"></i></div>
+        <div class="tool-name">Pioneer CDJ-3000</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon icon-teal"><i class="fas fa-keyboard"></i></div>
+        <div class="tool-name">Arturia MIDI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRICING ════════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Transparent Pricing</div>
+      <h2 class="section-heading">MMPM <span class="grad">Fee Plans</span></h2>
+      <p class="section-body mx-auto text-center mt-3">Three ways to pay for the flagship MMPM program — choose what works for you.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Standard -->
+      <div class="pricing-card sr sr-d1">
+        <div class="pricing-plan">Standard</div>
+        <div class="pricing-price">₹45K</div>
+        <div class="pricing-per">One-time full payment</div>
+        <ul class="pricing-feats">
+          <li><i class="fas fa-check"></i>Full 6-month MMPM program</li>
+          <li><i class="fas fa-check"></i>120+ live studio sessions</li>
+          <li><i class="fas fa-check"></i>Online learning portal access</li>
+          <li><i class="fas fa-check"></i>Industry certificate</li>
+          <li><i class="fas fa-check"></i>Placement support</li>
+          <li class="dim"><i class="fas fa-xmark"></i>Early bird discount</li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-outline w-100" style="justify-content:center;">Enroll Standard</a>
+      </div>
+      <!-- Early Bird -->
+      <div class="pricing-card popular sr sr-d2">
+        <div class="popular-badge">⭐ Best Value</div>
+        <div class="pricing-plan">Early Bird</div>
+        <div class="pricing-price">₹42.5K</div>
+        <div class="pricing-per">Pay before June 1 · Save ₹2,500</div>
+        <ul class="pricing-feats">
+          <li><i class="fas fa-check"></i>Full 6-month MMPM program</li>
+          <li><i class="fas fa-check"></i>120+ live studio sessions</li>
+          <li><i class="fas fa-check"></i>Online learning portal access</li>
+          <li><i class="fas fa-check"></i>Industry certificate</li>
+          <li><i class="fas fa-check"></i>Placement support</li>
+          <li><i class="fas fa-check"></i>Priority batch seat selection</li>
+        </ul>
+        <a href="index.html#enroll" class="btn-av btn-primary w-100" style="justify-content:center;">Claim Early Bird</a>
+      </div>
+      <!-- EMI -->
+      <div class="pricing-card sr sr-d3">
+        <div class="pricing-plan">Easy EMI</div>
+        <div class="pricing-price">₹8K</div>
+        <div class="pricing-per">× 6 months · Total ₹48,000</div>
+        <ul class="pricing-feats">
+          <li><i class="fas fa-check"></i>Full 6-month MMPM program</li>
+          <li><i class="fas fa-check"></i>120+ live studio sessions</li>
+          <li><i class="fas fa-check"></i>Online learning portal access</li>
+          <li><i class="fas fa-check"></i>Industry certificate</li>
+          <li><i class="fas fa-check"></i>Placement support</li>
+          <li><i class="fas fa-check"></i>Zero interest financing</li>
+        </ul>
+        <a href="contact.html" class="btn-av btn-ghost w-100" style="justify-content:center;">Discuss EMI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COMPARISON TABLE ══════════════════════ -->
+<section class="av-section-alt">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <div class="section-eyebrow mx-auto justify-content-center">Course Comparison</div>
+      <h2 class="section-heading">Which Course <span class="grad">Is Right</span> For You?</h2>
+    </div>
+    <div class="table-responsive sr">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>MMPM Flagship</th>
+            <th>Mixing Bootcamp</th>
+            <th>Sound Design</th>
+            <th>DJ Masterclass</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Duration</td><td>6 Months</td><td>4 Weeks</td><td>6 Weeks</td><td>8 Weeks</td></tr>
+          <tr><td>Music Theory</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td></tr>
+          <tr><td>Sound Design</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td></tr>
+          <tr><td>Mixing & EQ</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td></tr>
+          <tr><td>Mastering</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td></tr>
+          <tr><td>Music Business</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td></tr>
+          <tr><td>Live Performance</td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-check"></i></td></tr>
+          <tr><td>Placement Support</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td><td><i class="fas fa-xmark"></i></td></tr>
+          <tr><td>Certificate</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
+          <tr><td>Fee</td><td style="color:var(--pink);font-weight:700;">₹45,000</td><td>₹18,000</td><td>₹14,000</td><td>₹22,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ════════════════════════════════════ -->
+<section class="av-section">
+  <div class="container">
+    <div class="cta-band sr">
+      <div style="position:relative;z-index:1;">
+        <div class="eq-viz mx-auto mb-3" style="justify-content:center;">
+          <div class="eq-bar" style="--h1:8px;--h2:40px;--d:.6s"></div>
+          <div class="eq-bar" style="--h1:20px;--h2:28px;--d:.8s"></div>
+          <div class="eq-bar" style="--h1:5px;--h2:52px;--d:.5s"></div>
+          <div class="eq-bar" style="--h1:14px;--h2:36px;--d:.9s"></div>
+          <div class="eq-bar" style="--h1:22px;--h2:18px;--d:.7s"></div>
+        </div>
+        <h2 class="section-heading mt-2">Not Sure Which <span class="grad">Course</span>?</h2>
+        <p class="section-body mx-auto text-center mt-3 mb-4">Book a free 30-minute consultation call. We'll listen to your goals and tell you exactly which program makes sense for you.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="contact.html"      class="btn-av btn-primary"><i class="fas fa-phone"></i>Book Free Consultation</a>
+          <a href="index.html#enroll" class="btn-av btn-outline"><i class="fas fa-paper-plane"></i>Drop An Enquiry</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ════════════════════════════════ -->
+<footer id="av-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-logo-text">Avotune</div>
+        <div class="footer-sub">Studio</div>
+        <p class="footer-desc">Delhi's premier music production studio and training institute.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-spotify"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Navigate</div>
+        <a href="index.html"   class="footer-link">Home</a>
+        <a href="about.html"   class="footer-link">About Us</a>
+        <a href="courses.html" class="footer-link">Courses</a>
+        <a href="blog.html"    class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Courses</div>
+        <a href="courses.html" class="footer-link">MMPM Flagship</a>
+        <a href="courses.html" class="footer-link">Mixing Bootcamp</a>
+        <a href="courses.html" class="footer-link">Sound Design</a>
+        <a href="courses.html" class="footer-link">DJ Masterclass</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-col-title">Contact</div>
+        <p class="footer-contact">
+          <i class="fas fa-map-marker-alt"></i>42, Music Lane, Lajpat Nagar, Delhi<br>
+          <i class="fas fa-envelope"></i>hello@avotunesudio.in<br>
+          <i class="fas fa-phone"></i>+91 98765 43210<br>
+          <i class="fas fa-clock"></i>Mon–Sat · 10 AM – 8 PM
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Avotune Studio. All rights reserved.</span>
+      <span class="footer-copy">Crafted with <span style="color:var(--pink);">♥</span> in Delhi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Player -->
+<div id="float-player">
+  <div class="fp-vinyl" id="fp-vinyl"><i class="fas fa-music"></i></div>
+  <div class="fp-meta">
+    <div class="fp-song" id="fp-title">Avotune Vibe Mix</div>
+    <div class="fp-artist" id="fp-artist">Avotune Beats</div>
+  </div>
+  <div class="fp-progress-wrap">
+    <div class="fp-progress"><div class="fp-bar" id="fp-bar"></div></div>
+    <div class="fp-time" id="fp-time">0:00 / 3:00</div>
+  </div>
+  <div class="fp-controls">
+    <button class="fp-btn" id="fp-prev"><i class="fas fa-backward-step"></i></button>
+    <button class="fp-play-btn" id="fp-play"><i class="fas fa-play" id="fp-icon"></i></button>
+    <button class="fp-btn" id="fp-next"><i class="fas fa-forward-step"></i></button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+<script>
+// Courses page specific JS
+document.addEventListener('DOMContentLoaded', () => {
+  // Filter tabs
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.course-card[data-filter], .course-featured[data-filter]').forEach(card => {
+        const show = filter === 'all' || card.dataset.filter === filter;
+        card.style.transition = 'opacity .3s, transform .3s';
+        card.style.opacity = '0';
+        setTimeout(() => {
+          card.style.display = show ? '' : 'none';
+          if (show) requestAnimationFrame(() => { card.style.opacity = '1'; });
+        }, 150);
+      });
+    });
+  });
+  // Curriculum toggle
+  window.toggleCurriculum = (id) => {
+    const el = document.getElementById('curriculum-' + id);
+    if (!el) return;
+    el.classList.toggle('open');
+    // accordion modules inside
+    el.querySelectorAll('.curr-header').forEach(h => {
+      h.addEventListener('click', () => {
+        const mod = h.closest('.curr-module');
+        mod.classList.toggle('open');
+      });
+    });
+  };
+});
+</script>
+</body>
+</html>
